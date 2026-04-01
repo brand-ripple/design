@@ -1,0 +1,255 @@
+/* ── Reset & base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Navigation ── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #0d0d0d;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo svg {
+  flex-shrink: 0;
+}
+
+.nav-logo-text {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #cccccc;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-login {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 7px 16px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-login:hover {
+  background: #ffffff;
+  color: #0d0d0d;
+}
+
+.btn-get-started {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  transition: opacity 0.2s;
+}
+
+.btn-get-started:hover {
+  opacity: 0.7;
+}
+
+/* ── Hero ── */
+.hero {
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  padding: 0 40px 80px;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-title {
+  font-size: clamp(36px, 5.5vw, 72px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  color: #6b6b6b;
+  font-weight: 700;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #e05a2b;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s;
+}
+
+.hero-cta:hover {
+  opacity: 0.8;
+}
+
+/* ── Process section ── */
+.process {
+  padding: 0 0 80px;
+}
+
+.process-divider {
+  height: 1px;
+  background: #2a2a2a;
+  margin: 0 40px 0;
+}
+
+.process-steps {
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  gap: 0;
+  overflow-x: auto;
+}
+
+/* Connector line between steps / box */
+.connector {
+  flex: 0 0 1px;
+  width: 40px;
+  height: 1px;
+  background: #e05a2b;
+  min-width: 24px;
+}
+
+/* Process box that wraps Pick → Invest */
+.process-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #2a2a2a;
+  padding: 0 8px;
+  gap: 0;
+}
+
+/* Individual step */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 24px 28px;
+  gap: 16px;
+  min-width: 120px;
+}
+
+.step-outside {
+  min-width: 140px;
+}
+
+.step-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #888888;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding-bottom: 60px;
+  }
+
+  .process-steps {
+    padding: 0 20px;
+  }
+
+  .step {
+    min-width: 90px;
+    padding: 16px 12px 20px;
+  }
+
+  .step-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    padding: 18px 20px;
+  }
+
+  .hero {
+    padding: 0 20px 48px;
+  }
+
+  .process-divider {
+    margin: 0 20px;
+  }
+}
