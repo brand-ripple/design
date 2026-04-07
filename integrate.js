@@ -77,19 +77,37 @@ const connectors = [
 ];
 
 /* ── Page Navigation ── */
-function showPage(pageId) {
+function showPage(pageId, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.tn').forEach(n => n.classList.remove('active'));
   document.getElementById('page-' + pageId).classList.add('active');
-  document.querySelector(`.nav-item[onclick*="${pageId}"]`).classList.add('active');
-  closeSidebar();
+  if (btn) btn.classList.add('active');
+  else {
+    const match = document.querySelector(`.tn[onclick*="${pageId}"]`);
+    if (match) match.classList.add('active');
+  }
 }
 
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
+function toggleHistory() {
+  document.getElementById('history').classList.toggle('open');
 }
-function closeSidebar() {
-  document.getElementById('sidebar').classList.remove('open');
+
+function newChat() {
+  document.getElementById('messages').innerHTML = '';
+  const w = document.getElementById('welcome');
+  if (w) w.style.display = '';
+  showPage('home');
+}
+
+function loadChat(el) {
+  document.querySelectorAll('.history-item').forEach(i => i.classList.remove('active'));
+  el.classList.add('active');
+  showPage('home');
+}
+
+function showChat() {
+  showPage('home');
+  document.getElementById('chat-input').focus();
 }
 
 /* ── AI Hub Rendering ── */
@@ -253,18 +271,26 @@ function sendChat() {
   const welcome = document.querySelector('.chat-welcome');
   if (welcome) welcome.remove();
 
+  // Hide welcome
+  const w = document.getElementById('welcome');
+  if (w) w.style.display = 'none';
+  // Hide suggestions
+  const s = document.getElementById('suggestions');
+  if (s) s.style.display = 'none';
+
   addMessage('user', text);
   simulateResponse(text);
 }
 
 function addMessage(role, text) {
-  const container = document.getElementById('chat-messages');
+  const container = document.getElementById('messages');
   const avatar = role === 'user' ? 'U' : 'C';
   const msg = document.createElement('div');
   msg.className = `msg ${role}`;
-  msg.innerHTML = `<div class="msg-avatar">${avatar}</div><div class="msg-body">${text}</div>`;
+  msg.innerHTML = `<div class="msg-av">${avatar}</div><div class="msg-body">${text}</div>`;
   container.appendChild(msg);
-  container.scrollTop = container.scrollHeight;
+  const area = document.getElementById('chat-area');
+  area.scrollTop = area.scrollHeight;
 }
 
 function simulateResponse(userText) {
@@ -333,8 +359,12 @@ function simulateResponse(userText) {
   showTaskPanel(steps, response);
 }
 
+function closeTask() {
+  document.getElementById('task-overlay').classList.add('hidden');
+}
+
 function showTaskPanel(steps, finalResponse) {
-  const panel = document.getElementById('task-panel');
+  const panel = document.getElementById('task-overlay');
   const stepsEl = document.getElementById('task-steps');
   const badgeEl = document.getElementById('task-ai-badge');
 
@@ -357,7 +387,7 @@ function showTaskPanel(steps, finalResponse) {
       badgeEl.innerHTML = '';
       setTimeout(() => {
         panel.classList.add('hidden');
-        document.querySelector('.task-pulse').style.background = '#e05a2b';
+        document.querySelector('.task-pulse').style.background = 'var(--accent, #CAFF33)';
         addMessage('assistant', finalResponse);
       }, 800);
       return;
@@ -386,10 +416,7 @@ function getAIColor(name) {
   return colors[name] || '#52525b';
 }
 
-function toggleTaskPanel() {
-  const steps = document.getElementById('task-steps');
-  steps.style.display = steps.style.display === 'none' ? '' : 'none';
-}
+/* toggleTaskPanel removed — using closeTask instead */
 
 /* ── Automations ── */
 const automations = [];
