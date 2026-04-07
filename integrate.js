@@ -5,7 +5,7 @@
 /* ── AI Catalog ── */
 const aiModels = {
   code: [
-    { id:'claude', name:'Claude', desc:'Advanced coding, reasoning, and architecture', icon:'&#9733;', bestFor:'Code & Logic', enabled:true, color:'#e05a2b' },
+    { id:'claude', name:'Claude', desc:'Advanced coding, reasoning, and architecture', icon:'&#9733;', bestFor:'Code & Logic', enabled:true, color:'#e7e8dc' },
     { id:'gpt4', name:'GPT-4o', desc:'General-purpose coding and analysis', icon:'&#9679;', bestFor:'General Code', enabled:false, color:'#10a37f' },
     { id:'gemini', name:'Gemini', desc:'Large context window, multimodal coding', icon:'&#9830;', bestFor:'Large Projects', enabled:false, color:'#4285f4' },
     { id:'codestral', name:'Codestral', desc:'Fast code completion by Mistral', icon:'&#9654;', bestFor:'Fast Completion', enabled:false, color:'#ff7000' },
@@ -38,7 +38,7 @@ const aiModels = {
     { id:'wolfram', name:'Wolfram Alpha', desc:'Computational knowledge and math', icon:'&#8721;', bestFor:'Math & Science', enabled:false, color:'#dd1100' },
   ],
   writing: [
-    { id:'claude-writing', name:'Claude (Writing)', desc:'Long-form content, nuanced tone, creative writing', icon:'&#9733;', bestFor:'Long-form', enabled:true, color:'#e05a2b' },
+    { id:'claude-writing', name:'Claude (Writing)', desc:'Long-form content, nuanced tone, creative writing', icon:'&#9733;', bestFor:'Long-form', enabled:true, color:'#e7e8dc' },
     { id:'jasper', name:'Jasper', desc:'Marketing copy and brand voice content', icon:'&#9998;', bestFor:'Marketing', enabled:false, color:'#ff6b35' },
     { id:'copy-ai', name:'Copy.ai', desc:'Sales copy, emails, and ad content', icon:'&#128221;', bestFor:'Sales Copy', enabled:false, color:'#3b82f6' },
   ]
@@ -412,7 +412,7 @@ function showTaskPanel(steps, finalResponse) {
 }
 
 function getAIColor(name) {
-  const colors = { Claude:'#e05a2b', Flux:'#a855f7', Suno:'#ff3366', ElevenLabs:'#52525b', Perplexity:'#06b6d4', 'Runway Gen-3':'#06b6d4' };
+  const colors = { Claude:'#e7e8dc', Flux:'#a855f7', Suno:'#ff3366', ElevenLabs:'#52525b', Perplexity:'#06b6d4', 'Runway Gen-3':'#06b6d4' };
   return colors[name] || '#52525b';
 }
 
