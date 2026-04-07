@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coport</title>
+  <link rel="stylesheet" href="integrate.css" />
+</head>
+<body>
+
+  <!-- ═══ History Sidebar ═══ -->
+  <aside class="history" id="history">
+    <div class="history-top">
+      <div class="history-logo">
+        <svg width="20" height="26" viewBox="0 0 40 52" fill="#e7e8dc">
+          <circle cx="20" cy="5.5" r="4" stroke="#e7e8dc" stroke-width="2.5" fill="none"/>
+          <rect x="18" y="9" width="4" height="6" rx="2"/>
+          <rect x="8" y="15" width="24" height="4" rx="2"/>
+          <rect x="18" y="19" width="4" height="16" rx="2"/>
+          <path d="M7 40 C7 30 12 24 20 24 C28 24 33 30 33 40" stroke="#e7e8dc" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M7 40 L3.5 44 L4 42.5 L7.5 38 Z" fill="#e7e8dc"/>
+          <path d="M2.5 45 L7 40 L5 43 Z" fill="#e7e8dc"/>
+          <path d="M33 40 L36.5 44 L36 42.5 L32.5 38 Z" fill="#e7e8dc"/>
+          <path d="M37.5 45 L33 40 L35 43 Z" fill="#e7e8dc"/>
+        </svg>
+        <span class="history-brand">COPORT</span>
+      </div>
+      <button class="new-chat-btn" onclick="newChat()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        New chat
+      </button>
+    </div>
+    <div class="history-list" id="history-list">
+      <span class="history-section-label">Today</span>
+      <button class="history-item active" onclick="loadChat(this)">Website redesign for client</button>
+      <button class="history-item" onclick="loadChat(this)">Product image generation</button>
+      <button class="history-item" onclick="loadChat(this)">Debug payment API</button>
+      <span class="history-section-label">Yesterday</span>
+      <button class="history-item" onclick="loadChat(this)">Market research report</button>
+      <button class="history-item" onclick="loadChat(this)">Create onboarding flow</button>
+      <button class="history-item" onclick="loadChat(this)">Logo design brainstorm</button>
+      <span class="history-section-label">This week</span>
+      <button class="history-item" onclick="loadChat(this)">Database schema planning</button>
+      <button class="history-item" onclick="loadChat(this)">Write blog post about AI</button>
+      <button class="history-item" onclick="loadChat(this)">App performance audit</button>
+    </div>
+    <div class="history-bottom">
+      <div class="history-user"><div class="h-avatar">U</div><span class="h-name">User</span></div>
+    </div>
+  </aside>
+
+  <!-- ═══ Main ═══ -->
+  <main class="main" id="main">
+    <!-- Top nav -->
+    <header class="topnav">
+      <button class="sidebar-toggle" onclick="toggleHistory()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="topnav-links">
+        <button class="tn active" onclick="showPage('home',this)">Home</button>
+        <button class="tn" onclick="showPage('ai-hub',this)">AI Hub</button>
+        <button class="tn" onclick="showPage('superpowers',this)">Superpowers</button>
+        <button class="tn" onclick="showPage('automations',this)">Automations</button>
+        <button class="tn" onclick="showPage('agents',this)">Agents</button>
+        <button class="tn" onclick="showPage('devices',this)">Devices</button>
+      </nav>
+      <div class="topnav-right"><div class="tn-avatar">U</div></div>
+    </header>
+
+    <!-- PAGE: Home / Chat -->
+    <section class="page active" id="page-home">
+      <div class="chat-area" id="chat-area">
+        <div class="welcome" id="welcome">
+          <p class="welcome-hi" id="welcome-greeting">Good evening</p>
+          <h1 class="welcome-big">What shall we create together?</h1>
+        </div>
+        <div class="messages" id="messages"></div>
+      </div>
+      <div class="chat-bottom">
+        <div class="chat-input-bar">
+          <button class="input-plus" title="Attach"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+          <textarea class="chat-input" id="chat-input" placeholder="Enter a prompt for Coco" rows="1" onkeydown="handleChatKey(event)" oninput="autoGrow(this)"></textarea>
+          <div class="input-right">
+            <select class="speed-select"><option>Fast</option><option>Quality</option></select>
+            <button class="input-mic" title="Voice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></button>
+          </div>
+        </div>
+        <div class="suggestions" id="suggestions">
+          <button class="pill" onclick="prefillChat('Paint me a picture')">&#127912; Paint a picture</button>
+          <button class="pill" onclick="prefillChat('Compose a song for me')">&#127928; Compose a song</button>
+          <button class="pill" onclick="prefillChat('Build me something beautiful')">&#10024; Build something</button>
+          <button class="pill" onclick="prefillChat('Teach me something new')">&#128218; Teach me</button>
+          <button class="pill" onclick="prefillChat('Help me write')">&#9998; Help me write</button>
+        </div>
+      </div>
+      <div class="task-overlay hidden" id="task-overlay">
+        <div class="task-card"><div class="task-hdr"><span class="task-pulse"></span><span class="task-title" id="task-title">Coco is working...</span><button class="task-x" onclick="closeTask()">&times;</button></div><div class="task-steps" id="task-steps"></div><div class="task-badge" id="task-ai-badge"></div></div>
+      </div>
+    </section>
+
+    <!-- PAGE: AI Hub -->
+    <section class="page" id="page-ai-hub"><div class="page-inner"><h1 class="pg-title">AI Hub</h1><p class="pg-sub">The best AI for every task</p><div class="section"><h2 class="sec-title">Active</h2><div class="ai-grid" id="active-ais"></div></div><div class="section"><h2 class="sec-title">Code</h2><div class="ai-grid" id="ai-code"></div></div><div class="section"><h2 class="sec-title">Images</h2><div class="ai-grid" id="ai-images"></div></div><div class="section"><h2 class="sec-title">Audio</h2><div class="ai-grid" id="ai-audio"></div></div><div class="section"><h2 class="sec-title">Video</h2><div class="ai-grid" id="ai-video"></div></div><div class="section"><h2 class="sec-title">Research</h2><div class="ai-grid" id="ai-research"></div></div><div class="section"><h2 class="sec-title">Writing</h2><div class="ai-grid" id="ai-writing"></div></div></div></section>
+
+    <!-- PAGE: Superpowers -->
+    <section class="page" id="page-superpowers"><div class="page-inner"><h1 class="pg-title">Superpowers</h1><p class="pg-sub">Toggle abilities on or off</p><div class="search-bar"><svg class="s-icon" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg><input class="s-input" type="text" placeholder="Search..." oninput="filterSuperpowers(this.value)" /></div><div class="section"><h2 class="sec-title">Skills</h2><div class="powers-grid" id="skills-grid"></div></div><div class="section"><h2 class="sec-title">Connectors</h2><div class="powers-grid" id="connectors-grid"></div></div></div></section>
+
+    <!-- PAGE: Automations -->
+    <section class="page" id="page-automations"><div class="page-inner"><h1 class="pg-title">Automations</h1><p class="pg-sub">Rules that run automatically</p><div class="section"><h2 class="sec-title">My Automations</h2><div id="automations-list"><div class="empty-state">&#9889; Nothing here yet — your first automation is just a click away</div></div></div><div class="section"><h2 class="sec-title">Create</h2><div class="auto-builder"><div class="auto-row"><span class="auto-label">When</span><select class="auto-select" id="auto-trigger"><option value="">Trigger...</option><option value="file-change">File changes</option><option value="git-push">Code pushed</option><option value="error">Error occurs</option><option value="schedule">Schedule</option></select></div><div class="auto-arrow">&#8595;</div><div class="auto-row"><span class="auto-label">Then</span><select class="auto-select" id="auto-action"><option value="">Action...</option><option value="run-tests">Run tests</option><option value="fix-errors">Fix errors</option><option value="review-code">Review code</option><option value="notify">Notify me</option></select></div><div class="auto-actions"><button class="btn-accent" onclick="createAutomation()">Create</button></div></div><h2 class="sec-title" style="margin-top:20px">Templates</h2><div class="tpl-grid"><button class="tpl" onclick="useTemplate('auto-test')">&#128300; Auto-Test</button><button class="tpl" onclick="useTemplate('auto-fix')">&#128295; Auto-Fix</button><button class="tpl" onclick="useTemplate('pr-review')">&#128269; PR Review</button><button class="tpl" onclick="useTemplate('daily-summary')">&#128232; Recap</button></div></div></div></section>
+
+    <!-- PAGE: Agents -->
+    <section class="page" id="page-agents"><div class="page-inner"><h1 class="pg-title">Agents</h1><p class="pg-sub">Create and manage AI agents</p><div class="section"><h2 class="sec-title">Active</h2><div id="agent-list"></div></div><div class="section"><h2 class="sec-title">Create Agent</h2><div class="agent-builder" id="agent-builder"><div class="builder-step active" id="ab-step-1"><div class="bform"><div class="form-row"><label class="form-label">Name</label><input class="form-input" id="agent-name" type="text" placeholder="e.g. DesignBot" /></div><div class="form-row"><label class="form-label">Purpose</label><textarea class="form-input form-ta" id="agent-purpose" placeholder="What does it do?" rows="2"></textarea></div><div class="form-row"><label class="form-label">Personality</label><div class="pers-opts"><button class="pers selected" onclick="pickPersonality(this)">Professional</button><button class="pers" onclick="pickPersonality(this)">Friendly</button><button class="pers" onclick="pickPersonality(this)">Creative</button></div></div></div><div class="bactions"><button class="btn-accent" onclick="advanceAgentBuilder(2)">Next: AIs</button></div></div><div class="builder-step" id="ab-step-2"><h3 class="sec-title">Pick AIs</h3><div class="ai-picker" id="ai-picker"></div><div class="bactions"><button class="btn-outline" onclick="advanceAgentBuilder(1)">Back</button><button class="btn-accent" onclick="advanceAgentBuilder(3)">Next</button></div></div><div class="builder-step" id="ab-step-3"><h3 class="sec-title">Access</h3><div class="access-picker" id="access-picker"></div><div class="bactions"><button class="btn-outline" onclick="advanceAgentBuilder(2)">Back</button><button class="btn-accent" onclick="createAgent()">Create</button></div></div></div></div><div class="section"><h2 class="sec-title">Templates</h2><div class="tpl-grid"><button class="tpl" onclick="useAgentTemplate('designer')">&#127912; Designer</button><button class="tpl" onclick="useAgentTemplate('coder')">&#128187; Dev</button><button class="tpl" onclick="useAgentTemplate('researcher')">&#128218; Researcher</button><button class="tpl" onclick="useAgentTemplate('content')">&#128221; Content</button></div></div></div></section>
+
+    <!-- PAGE: Devices -->
+    <section class="page" id="page-devices"><div class="page-inner"><h1 class="pg-title">Devices</h1><p class="pg-sub">Your connected machines</p><div class="section"><h2 class="sec-title">Connected</h2><div class="dev-item"><span class="dev-dot on"></span><div class="dev-info"><span class="dev-name">Mac mini</span><span class="dev-meta">macOS &middot; M2 &middot; 192.168.1.42</span></div><span class="dev-badge">Connected</span></div></div><div class="section"><h2 class="sec-title">Add Device</h2><div class="tpl-grid"><button class="tpl" onclick="startDeviceSetup('mac')">&#128187; Mac</button><button class="tpl" onclick="startDeviceSetup('windows')">&#128421; Windows</button><button class="tpl" onclick="startDeviceSetup('linux')">&#128424; Linux</button><button class="tpl" onclick="startDeviceSetup('cloud')">&#9729; Cloud</button></div><div class="device-setup hidden" id="device-setup"><div class="setup-step active" id="ds-step-1"><p class="pg-sub">Download Coport on your device.</p><button class="btn-accent" onclick="advanceDeviceSetup(2)">Download</button></div><div class="setup-step" id="ds-step-2"><p class="pg-sub">Sign in. We'll detect it.</p><div class="wait-row"><div class="spinner"></div><span>Waiting...</span></div><button class="btn-outline" onclick="advanceDeviceSetup(3)">Done</button></div><div class="setup-step" id="ds-step-3"><p style="color:var(--accent)">Connected!</p><button class="btn-accent" onclick="closeDeviceSetup()">Done</button></div></div></div></div></section>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)"><div class="modal" onclick="event.stopPropagation()"><div class="modal-hdr"><h2 class="modal-title" id="modal-title">Connect</h2><button class="task-x" onclick="closeModal()">&times;</button></div><div class="modal-body" id="modal-body"></div><div class="modal-ft"><button class="btn-outline" onclick="closeModal()">Cancel</button><button class="btn-accent" id="modal-action-btn" onclick="modalAction()">Connect</button></div></div></div>
+
+  <script src="integrate.js"></script>
+</body>
+</html>
