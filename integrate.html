@@ -8,596 +8,355 @@
 </head>
 <body>
 
-  <!-- ═══ Sidebar ═══ -->
+  <!-- ═══ Icon Sidebar ═══ -->
   <aside class="sidebar" id="sidebar">
-    <div class="sidebar-top">
-      <div class="sidebar-logo">
-        <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.5 7.5H20L14 12.5L16.5 20L10 15.5L3.5 20L6 12.5L0 7.5H7.5L10 0Z" fill="white"/></svg>
-        <span class="logo-text">Coport</span>
-      </div>
-
-      <nav class="sidebar-nav">
-        <button class="nav-item active" onclick="showPage('home')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          <span>Home</span>
-        </button>
-        <button class="nav-item" onclick="showPage('ai-hub')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8l2.8-2.8M17 7l2.8-2.8"/></svg>
-          <span>AI Hub</span>
-        </button>
-        <button class="nav-item" onclick="showPage('superpowers')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          <span>Superpowers</span>
-        </button>
-        <button class="nav-item" onclick="showPage('automations')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-          <span>Automations</span>
-        </button>
-        <button class="nav-item" onclick="showPage('agents')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="18" cy="6" r="2"/><path d="M18 4v-2M20 6h2"/></svg>
-          <span>My Agents</span>
-        </button>
-        <button class="nav-item" onclick="showPage('devices')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span>My Devices</span>
-        </button>
-      </nav>
+    <div class="sidebar-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="4,2 20,12 4,22" fill="#CAFF33"/></svg>
     </div>
-
-    <!-- Connected devices mini-status -->
-    <div class="sidebar-bottom">
-      <div class="sidebar-devices">
-        <div class="mini-device">
-          <span class="status-dot online"></span>
-          <span class="mini-name">Mac mini</span>
-        </div>
-        <div class="mini-device">
-          <span class="status-dot offline"></span>
-          <span class="mini-name">Linux Server</span>
-        </div>
-      </div>
-      <div class="sidebar-user">
-        <div class="user-avatar">U</div>
-        <span class="user-name">User</span>
-      </div>
+    <nav class="sidebar-icons">
+      <button class="si active" onclick="showPage('home')" title="Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </button>
+      <button class="si" onclick="showPage('ai-hub')" title="AI Hub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8l2.8-2.8M17 7l2.8-2.8"/></svg>
+      </button>
+      <button class="si" onclick="showPage('superpowers')" title="Superpowers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </button>
+      <button class="si" onclick="showPage('automations')" title="Automations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+      </button>
+      <button class="si" onclick="showPage('agents')" title="Agents">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+      </button>
+      <button class="si" onclick="showPage('devices')" title="Devices">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </button>
+    </nav>
+    <div class="sidebar-bottom-icon">
+      <button class="si" title="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
     </div>
   </aside>
 
-  <!-- ═══ Main Content ═══ -->
+  <!-- ═══ Main ═══ -->
   <main class="main">
 
-    <!-- ──────────────────────────── -->
-    <!-- PAGE: Home / Chat Workspace -->
-    <!-- ──────────────────────────── -->
-    <section class="page active" id="page-home">
-
-      <!-- Top bar -->
-      <div class="topbar">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-left">
         <button class="menu-toggle" onclick="toggleSidebar()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
-        <h1 class="topbar-title">Good evening</h1>
-        <div class="topbar-actions">
-          <button class="topbar-btn" onclick="showPage('ai-hub')">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8l2.8-2.8M17 7l2.8-2.8"/></svg>
-            <span>AI Hub</span>
+      </div>
+      <div class="topbar-right">
+        <button class="topbar-search" title="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <div class="topbar-user">
+          <div class="user-avatar">U</div>
+          <span class="user-name">User</span>
+          <span class="user-rating">&#9733; 5.0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ════════════ PAGE: Home ════════════ -->
+    <section class="page active" id="page-home">
+      <div class="dashboard-grid">
+
+        <!-- Card: Coco Agent -->
+        <div class="card card-agent">
+          <h3 class="card-title">Coco</h3>
+          <span class="card-dots">&#8942;</span>
+          <div class="agent-profile">
+            <div class="agent-av">C</div>
+            <div>
+              <span class="agent-name-big">Coco &middot; AI Agent</span>
+              <span class="agent-stars">&#9733; 4.9 &middot; Always On</span>
+            </div>
+          </div>
+          <div class="agent-dest">
+            <span class="dest-label">Current Task</span>
+            <span class="dest-value">Standing by</span>
+          </div>
+          <button class="btn-outline" onclick="showPage('agents')">View Details</button>
+        </div>
+
+        <!-- Card: Tasks Completed -->
+        <div class="card card-stat">
+          <span class="stat-badge">&#9650; 30% Better</span>
+          <span class="card-dots">&#8942;</span>
+          <span class="stat-label">Tasks Completed</span>
+          <span class="stat-number">142</span>
+          <div class="stat-sparkline" id="spark-tasks"></div>
+          <button class="btn-accent" onclick="showChat()">New Task</button>
+        </div>
+
+        <!-- Card: Active AIs (map-style) -->
+        <div class="card card-wide card-map">
+          <h3 class="card-title">Active AIs</h3>
+          <div class="ai-map">
+            <div class="ai-node" style="top:20%;left:15%"><span class="node-dot pulse"></span><span class="node-label">Claude</span></div>
+            <div class="ai-node" style="top:55%;left:35%"><span class="node-dot pulse"></span><span class="node-label">Flux</span></div>
+            <div class="ai-node" style="top:30%;left:65%"><span class="node-dot"></span><span class="node-label">Perplexity</span></div>
+            <div class="ai-node" style="top:70%;left:75%"><span class="node-dot"></span><span class="node-label">ElevenLabs</span></div>
+            <div class="ai-node" style="top:15%;left:85%"><span class="node-dot"></span><span class="node-label">Whisper</span></div>
+          </div>
+        </div>
+
+        <!-- Card: Weekly Activity -->
+        <div class="card card-chart">
+          <div class="card-header">
+            <h3 class="card-title">Weekly Activity</h3>
+            <span class="card-dots">&#8942;</span>
+          </div>
+          <div class="bar-chart" id="bar-chart">
+            <div class="bar" style="--h:30%"><span class="bar-label">M</span></div>
+            <div class="bar" style="--h:45%"><span class="bar-label">T</span></div>
+            <div class="bar" style="--h:35%"><span class="bar-label">W</span></div>
+            <div class="bar" style="--h:60%"><span class="bar-label">T</span></div>
+            <div class="bar active" style="--h:90%"><span class="bar-val">89.2</span><span class="bar-label">F</span></div>
+            <div class="bar" style="--h:70%"><span class="bar-label">S</span></div>
+            <div class="bar" style="--h:25%"><span class="bar-label">S</span></div>
+          </div>
+        </div>
+
+        <!-- Card: AI Usage -->
+        <div class="card card-rings">
+          <div class="card-header">
+            <h3 class="card-title">AI Usage</h3>
+            <span class="time-badge">Last 24h</span>
+          </div>
+          <div class="rings-row">
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32" stroke="#2a2a2e" stroke-width="6" fill="none"/>
+                <circle cx="40" cy="40" r="32" stroke="#CAFF33" stroke-width="6" fill="none" stroke-dasharray="160 201" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+              </svg>
+              <span class="ring-icon">&#9889;</span>
+              <span class="ring-label-b">&#9679; Code</span>
+            </div>
+            <div class="ring-wrap">
+              <svg class="ring-svg" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32" stroke="#2a2a2e" stroke-width="6" fill="none"/>
+                <circle cx="40" cy="40" r="32" stroke="#CAFF33" stroke-width="6" fill="none" stroke-dasharray="80 201" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+              </svg>
+              <span class="ring-icon">&#127912;</span>
+              <span class="ring-label-b">&#9679; Images</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Speed / KPI -->
+        <div class="card card-kpi card-olive">
+          <div class="card-header">
+            <span class="kpi-big">1745</span>
+            <span class="kpi-unit">tasks/mo</span>
+            <span class="time-badge">Last month</span>
+          </div>
+          <div class="kpi-bar-track">
+            <div class="kpi-bar-fill" style="width:72%"></div>
+          </div>
+          <div class="kpi-ticks">
+            <span>0</span><span>500</span><span>1000</span><span>1745</span>
+          </div>
+        </div>
+
+        <!-- Card: Recent Tasks -->
+        <div class="card card-list">
+          <div class="card-header">
+            <h3 class="card-title">Recent Tasks</h3>
+            <span class="card-dots">&#8942;</span>
+          </div>
+          <div class="list-items" id="recent-tasks">
+            <div class="list-item">
+              <div class="list-av" style="background:#CAFF33;color:#1a1a1e">&#9733;</div>
+              <div class="list-info"><span class="list-name">Website Redesign</span><span class="list-meta">Today, 2:30 PM &middot; Claude</span></div>
+              <span class="list-arrow">&#8250;</span>
+            </div>
+            <div class="list-item">
+              <div class="list-av" style="background:#a855f7;color:#fff">&#9889;</div>
+              <div class="list-info"><span class="list-name">Product Images</span><span class="list-meta">Today, 1:15 PM &middot; Flux</span></div>
+              <span class="list-arrow">&#8250;</span>
+            </div>
+            <div class="list-item">
+              <div class="list-av" style="background:#06b6d4;color:#fff">&#128270;</div>
+              <div class="list-info"><span class="list-name">Market Research</span><span class="list-meta">Yesterday &middot; Perplexity</span></div>
+              <span class="list-arrow">&#8250;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Traffic / Usage Intensity -->
+        <div class="card card-line">
+          <div class="card-header">
+            <h3 class="card-title">Usage Intensity</h3>
+          </div>
+          <div class="line-chart" id="line-chart">
+            <svg viewBox="0 0 300 80" preserveAspectRatio="none">
+              <polyline points="0,60 30,55 60,50 90,40 120,55 150,30 180,45 210,20 240,35 270,25 300,30" fill="none" stroke="#CAFF33" stroke-width="2"/>
+              <polygon points="0,60 30,55 60,50 90,40 120,55 150,30 180,45 210,20 240,35 270,25 300,30 300,80 0,80" fill="url(#lineGrad)" opacity="0.3"/>
+              <defs><linearGradient id="lineGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#CAFF33"/><stop offset="100%" stop-color="transparent"/></linearGradient></defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Card: Performance -->
+        <div class="card card-perf">
+          <div class="card-header">
+            <h3 class="card-title">Performance</h3>
+            <span class="card-dots">&#8942;</span>
+          </div>
+          <div class="perf-row">
+            <div class="perf-ring">
+              <svg viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32" stroke="#2a2a2e" stroke-width="6" fill="none"/>
+                <circle cx="40" cy="40" r="32" stroke="#CAFF33" stroke-width="6" fill="none" stroke-dasharray="159 201" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+              </svg>
+              <span class="perf-num">79</span>
+              <span class="perf-label">&#9679; Success Rate</span>
+            </div>
+            <div class="perf-ring">
+              <svg viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32" stroke="#2a2a2e" stroke-width="6" fill="none"/>
+                <circle cx="40" cy="40" r="32" stroke="#CAFF33" stroke-width="6" fill="none" stroke-dasharray="98 201" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+              </svg>
+              <span class="perf-num">4.9</span>
+              <span class="perf-label">&#9679; Quality Score</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Floating chat input -->
+      <div class="float-chat">
+        <div class="float-chat-wrap">
+          <textarea class="float-input" id="chat-input" placeholder="Ask Coco anything..." rows="1" onkeydown="handleChatKey(event)" oninput="autoGrow(this)"></textarea>
+          <button class="float-send" onclick="sendChat()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
         </div>
       </div>
 
-      <!-- Quick actions grid -->
-      <div class="quick-actions-home">
-        <button class="qa-card" onclick="prefillChat('Build me a website')">
-          <span class="qa-icon">&#127760;</span>
-          <span class="qa-label">Build a website</span>
-        </button>
-        <button class="qa-card" onclick="prefillChat('Generate product images for my store')">
-          <span class="qa-icon">&#127912;</span>
-          <span class="qa-label">Generate images</span>
-        </button>
-        <button class="qa-card" onclick="prefillChat('Analyze my data and create a report')">
-          <span class="qa-icon">&#128202;</span>
-          <span class="qa-label">Analyze data</span>
-        </button>
-        <button class="qa-card" onclick="prefillChat('Set up my new project with best practices')">
-          <span class="qa-icon">&#128640;</span>
-          <span class="qa-label">Start a project</span>
-        </button>
-      </div>
-
-      <!-- Chat / task area -->
-      <div class="workspace">
-        <div class="chat-messages" id="chat-messages">
-          <div class="chat-welcome">
-            <p class="welcome-text">What would you like to build today?</p>
-            <p class="welcome-sub">I'll pick the best AI for each part of the job automatically.</p>
+      <!-- Task overlay (appears when Coco is working) -->
+      <div class="task-overlay hidden" id="task-overlay">
+        <div class="task-card">
+          <div class="task-card-header">
+            <span class="task-pulse"></span>
+            <span class="task-title" id="task-title">Coco is working...</span>
+            <button class="task-close" onclick="closeTask()">&times;</button>
           </div>
+          <div class="task-steps" id="task-steps"></div>
+          <div class="task-ai-badge" id="task-ai-badge"></div>
         </div>
-
-        <!-- Active task panel (appears when a task is running) -->
-        <div class="task-panel hidden" id="task-panel">
-          <div class="task-header">
-            <div class="task-title-row">
-              <span class="task-pulse"></span>
-              <span class="task-title" id="task-title">Working...</span>
-            </div>
-            <button class="task-collapse" onclick="toggleTaskPanel()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-          </div>
-          <div class="task-steps" id="task-steps">
-            <!-- Filled dynamically -->
-          </div>
-          <div class="task-ai-badge" id="task-ai-badge">
-            <!-- Shows which AI is currently working -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Chat input -->
-      <div class="chat-input-area">
-        <div class="chat-input-wrap">
-          <textarea class="chat-input" id="chat-input" placeholder="Describe what you want to build..." rows="1" onkeydown="handleChatKey(event)" oninput="autoGrow(this)"></textarea>
-          <div class="chat-input-actions">
-            <button class="attach-btn" title="Attach files">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
-            </button>
-            <button class="send-btn" id="send-btn" onclick="sendChat()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </button>
-          </div>
-        </div>
-        <p class="input-hint">Coco routes your request to the best AI for each task automatically</p>
       </div>
     </section>
 
-    <!-- ──────────────────────── -->
-    <!-- PAGE: AI Hub             -->
-    <!-- ──────────────────────── -->
+    <!-- ════════════ PAGE: AI Hub ════════════ -->
     <section class="page" id="page-ai-hub">
-      <div class="topbar">
-        <button class="menu-toggle" onclick="toggleSidebar()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <h1 class="topbar-title">AI Hub</h1>
-        <p class="topbar-subtitle">The best AI for every task, all in one place</p>
-      </div>
-
+      <div class="page-header"><h1 class="page-title">AI Hub</h1><p class="page-sub">The best AI for every task, all in one place</p></div>
       <div class="page-scroll">
-        <!-- AI models currently enabled -->
-        <div class="section">
-          <h2 class="section-title">Active AIs</h2>
-          <p class="section-desc">These AIs are ready to use. Claude automatically picks the right one for each task.</p>
-          <div class="ai-grid" id="active-ais">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title">Code &amp; Development</h2>
-          <div class="ai-grid" id="ai-code">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title">Images &amp; Design</h2>
-          <div class="ai-grid" id="ai-images">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title">Audio &amp; Voice</h2>
-          <div class="ai-grid" id="ai-audio">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title">Video</h2>
-          <div class="ai-grid" id="ai-video">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title">Research &amp; Knowledge</h2>
-          <div class="ai-grid" id="ai-research">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-
-        <div class="section">
-          <h2 class="section-title">Writing &amp; Content</h2>
-          <div class="ai-grid" id="ai-writing">
-            <!-- Filled by JS -->
-          </div>
-        </div>
+        <div class="section"><h2 class="section-title">Active AIs</h2><div class="ai-grid" id="active-ais"></div></div>
+        <div class="section"><h2 class="section-title">Code &amp; Development</h2><div class="ai-grid" id="ai-code"></div></div>
+        <div class="section"><h2 class="section-title">Images &amp; Design</h2><div class="ai-grid" id="ai-images"></div></div>
+        <div class="section"><h2 class="section-title">Audio &amp; Voice</h2><div class="ai-grid" id="ai-audio"></div></div>
+        <div class="section"><h2 class="section-title">Video</h2><div class="ai-grid" id="ai-video"></div></div>
+        <div class="section"><h2 class="section-title">Research &amp; Knowledge</h2><div class="ai-grid" id="ai-research"></div></div>
+        <div class="section"><h2 class="section-title">Writing &amp; Content</h2><div class="ai-grid" id="ai-writing"></div></div>
       </div>
     </section>
 
-    <!-- ──────────────────────── -->
-    <!-- PAGE: Superpowers        -->
-    <!-- ──────────────────────── -->
+    <!-- ════════════ PAGE: Superpowers ════════════ -->
     <section class="page" id="page-superpowers">
-      <div class="topbar">
-        <button class="menu-toggle" onclick="toggleSidebar()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <h1 class="topbar-title">Superpowers</h1>
-        <p class="topbar-subtitle">Add new abilities with one click</p>
-      </div>
-
+      <div class="page-header"><h1 class="page-title">Superpowers</h1><p class="page-sub">Add new abilities with one click</p></div>
       <div class="page-scroll">
-        <div class="search-bar">
-          <svg class="search-icon" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg>
-          <input class="search-input" type="text" placeholder="Search superpowers..." oninput="filterSuperpowers(this.value)" />
-        </div>
-
-        <!-- Skills -->
-        <div class="section">
-          <h2 class="section-title">Skills</h2>
-          <p class="section-desc">Abilities Claude can use during conversations. Toggle them on or off.</p>
-          <div class="powers-grid" id="skills-grid">
-            <!-- Filled by JS -->
-          </div>
-        </div>
-
-        <!-- Connectors (MCP in plain language) -->
-        <div class="section">
-          <h2 class="section-title">Connectors</h2>
-          <p class="section-desc">Let Claude read and write to your apps and services. Click to connect.</p>
-          <div class="powers-grid" id="connectors-grid">
-            <!-- Filled by JS -->
-          </div>
-        </div>
+        <div class="search-bar"><svg class="search-icon" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg><input class="search-input" type="text" placeholder="Search superpowers..." oninput="filterSuperpowers(this.value)" /></div>
+        <div class="section"><h2 class="section-title">Skills</h2><p class="section-desc">Toggle abilities on or off</p><div class="powers-grid" id="skills-grid"></div></div>
+        <div class="section"><h2 class="section-title">Connectors</h2><p class="section-desc">Let Coco access your apps</p><div class="powers-grid" id="connectors-grid"></div></div>
       </div>
     </section>
 
-    <!-- ──────────────────────── -->
-    <!-- PAGE: Automations        -->
-    <!-- ──────────────────────── -->
+    <!-- ════════════ PAGE: Automations ════════════ -->
     <section class="page" id="page-automations">
-      <div class="topbar">
-        <button class="menu-toggle" onclick="toggleSidebar()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <h1 class="topbar-title">Automations</h1>
-        <p class="topbar-subtitle">Set up rules that run automatically</p>
-      </div>
-
+      <div class="page-header"><h1 class="page-title">Automations</h1><p class="page-sub">Rules that run automatically</p></div>
       <div class="page-scroll">
-        <!-- Existing automations -->
-        <div class="section">
-          <h2 class="section-title">My Automations</h2>
-          <div class="automations-list" id="automations-list">
-            <div class="empty-state">
-              <span class="empty-icon">&#9889;</span>
-              <p class="empty-text">No automations yet</p>
-              <p class="empty-sub">Create your first automation below</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Builder -->
+        <div class="section"><h2 class="section-title">My Automations</h2><div class="automations-list" id="automations-list"><div class="empty-state"><span class="empty-icon">&#9889;</span><p class="empty-text">No automations yet</p></div></div></div>
         <div class="section">
           <h2 class="section-title">Create Automation</h2>
-          <p class="section-desc">When something happens, Claude does something for you automatically.</p>
-
           <div class="auto-builder">
-            <div class="auto-row">
-              <span class="auto-label">When</span>
-              <select class="auto-select" id="auto-trigger">
-                <option value="">Choose a trigger...</option>
-                <option value="file-change">A file changes</option>
-                <option value="git-push">Code is pushed</option>
-                <option value="git-pr">A pull request is opened</option>
-                <option value="error">An error is detected</option>
-                <option value="schedule">On a schedule</option>
-                <option value="new-issue">A new issue is created</option>
-                <option value="deploy">A deploy finishes</option>
-                <option value="message">I send a message in Slack</option>
-              </select>
-            </div>
-            <div class="auto-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-            </div>
-            <div class="auto-row">
-              <span class="auto-label">Then</span>
-              <select class="auto-select" id="auto-action">
-                <option value="">Choose an action...</option>
-                <option value="run-tests">Run tests</option>
-                <option value="fix-errors">Fix errors automatically</option>
-                <option value="review-code">Review the code</option>
-                <option value="send-summary">Send a summary</option>
-                <option value="deploy">Deploy to production</option>
-                <option value="create-pr">Create a pull request</option>
-                <option value="notify">Send me a notification</option>
-                <option value="generate-docs">Generate documentation</option>
-                <option value="optimize">Optimize performance</option>
-              </select>
-            </div>
-            <div class="auto-row" id="auto-detail-row" style="display:none">
-              <span class="auto-label">Details</span>
-              <input class="auto-input" id="auto-detail" type="text" placeholder="Additional details..." />
-            </div>
-            <div class="auto-actions">
-              <button class="btn-primary" onclick="createAutomation()">Create Automation</button>
-            </div>
+            <div class="auto-row"><span class="auto-label">When</span><select class="auto-select" id="auto-trigger"><option value="">Choose a trigger...</option><option value="file-change">A file changes</option><option value="git-push">Code is pushed</option><option value="git-pr">A PR is opened</option><option value="error">An error occurs</option><option value="schedule">On a schedule</option></select></div>
+            <div class="auto-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+            <div class="auto-row"><span class="auto-label">Then</span><select class="auto-select" id="auto-action"><option value="">Choose an action...</option><option value="run-tests">Run tests</option><option value="fix-errors">Fix errors</option><option value="review-code">Review code</option><option value="send-summary">Send summary</option><option value="deploy">Deploy</option><option value="notify">Notify me</option></select></div>
+            <div class="auto-actions"><button class="btn-accent" onclick="createAutomation()">Create</button></div>
           </div>
-
-          <!-- Templates -->
-          <h3 class="subsection-title">Templates</h3>
-          <p class="section-desc">Popular automations you can enable instantly</p>
+          <h3 class="section-title" style="margin-top:24px">Templates</h3>
           <div class="templates-grid">
-            <button class="template-card" onclick="useTemplate('auto-test')">
-              <span class="template-icon">&#128300;</span>
-              <span class="template-name">Auto-Test</span>
-              <span class="template-desc">Run tests every time a file changes</span>
-            </button>
-            <button class="template-card" onclick="useTemplate('auto-fix')">
-              <span class="template-icon">&#128295;</span>
-              <span class="template-name">Auto-Fix</span>
-              <span class="template-desc">Automatically fix lint errors on save</span>
-            </button>
-            <button class="template-card" onclick="useTemplate('pr-review')">
-              <span class="template-icon">&#128269;</span>
-              <span class="template-name">PR Review</span>
-              <span class="template-desc">Review every pull request automatically</span>
-            </button>
-            <button class="template-card" onclick="useTemplate('daily-summary')">
-              <span class="template-icon">&#128232;</span>
-              <span class="template-name">Daily Summary</span>
-              <span class="template-desc">Get a daily recap of project activity</span>
-            </button>
-            <button class="template-card" onclick="useTemplate('error-alert')">
-              <span class="template-icon">&#128680;</span>
-              <span class="template-name">Error Alert</span>
-              <span class="template-desc">Get notified instantly when errors occur</span>
-            </button>
-            <button class="template-card" onclick="useTemplate('auto-docs')">
-              <span class="template-icon">&#128196;</span>
-              <span class="template-name">Auto-Docs</span>
-              <span class="template-desc">Keep documentation updated with code changes</span>
-            </button>
+            <button class="template-card" onclick="useTemplate('auto-test')"><span class="template-icon">&#128300;</span><span class="template-name">Auto-Test</span></button>
+            <button class="template-card" onclick="useTemplate('auto-fix')"><span class="template-icon">&#128295;</span><span class="template-name">Auto-Fix</span></button>
+            <button class="template-card" onclick="useTemplate('pr-review')"><span class="template-icon">&#128269;</span><span class="template-name">PR Review</span></button>
+            <button class="template-card" onclick="useTemplate('daily-summary')"><span class="template-icon">&#128232;</span><span class="template-name">Daily Recap</span></button>
+            <button class="template-card" onclick="useTemplate('error-alert')"><span class="template-icon">&#128680;</span><span class="template-name">Error Alert</span></button>
+            <button class="template-card" onclick="useTemplate('auto-docs')"><span class="template-icon">&#128196;</span><span class="template-name">Auto-Docs</span></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ──────────────────────── -->
-    <!-- PAGE: My Agents          -->
-    <!-- ──────────────────────── -->
+    <!-- ════════════ PAGE: Agents ════════════ -->
     <section class="page" id="page-agents">
-      <div class="topbar">
-        <button class="menu-toggle" onclick="toggleSidebar()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <h1 class="topbar-title">My Agents</h1>
-        <p class="topbar-subtitle">Create and manage your AI agents</p>
-      </div>
-
+      <div class="page-header"><h1 class="page-title">My Agents</h1><p class="page-sub">Create and manage AI agents</p></div>
       <div class="page-scroll">
-        <!-- Coco — the default agent -->
+        <div class="section"><h2 class="section-title">Active Agents</h2><div id="agent-list"></div></div>
         <div class="section">
-          <h2 class="section-title">Active Agents</h2>
-          <div class="agent-list" id="agent-list">
-            <div class="agent-card featured">
-              <div class="agent-avatar coco-avatar">C</div>
-              <div class="agent-info">
-                <span class="agent-name">Coco</span>
-                <span class="agent-role">Your personal AI assistant</span>
-                <span class="agent-desc">General-purpose agent that routes tasks to the best AI automatically. Handles code, images, research, and more.</span>
-              </div>
-              <div class="agent-stats">
-                <div class="agent-stat"><span class="stat-num" id="coco-ai-count">3</span><span class="stat-label">AIs connected</span></div>
-                <div class="agent-stat"><span class="stat-num" id="coco-skill-count">4</span><span class="stat-label">Skills enabled</span></div>
-              </div>
-              <span class="agent-badge default-badge">Default</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Create Agent -->
-        <div class="section">
-          <h2 class="section-title">Create a New Agent</h2>
-          <p class="section-desc">Build a specialized agent for a specific job. Pick which AIs it uses, what it can access, and what personality it has.</p>
-
+          <h2 class="section-title">Create Agent</h2>
           <div class="agent-builder" id="agent-builder">
-            <!-- Step 1: Identity -->
             <div class="builder-step active" id="ab-step-1">
-              <h3 class="builder-step-title">Identity</h3>
               <div class="builder-form">
-                <div class="form-row">
-                  <label class="form-label">Agent Name</label>
-                  <input class="form-input" id="agent-name" type="text" placeholder="e.g. DesignBot, CodeReviewer, ContentWriter" />
-                </div>
-                <div class="form-row">
-                  <label class="form-label">What does this agent do?</label>
-                  <textarea class="form-input form-textarea" id="agent-purpose" placeholder="Describe what this agent specializes in..." rows="3"></textarea>
-                </div>
-                <div class="form-row">
-                  <label class="form-label">Personality</label>
-                  <div class="personality-options">
-                    <button class="personality-btn selected" onclick="pickPersonality(this,'professional')">Professional</button>
-                    <button class="personality-btn" onclick="pickPersonality(this,'friendly')">Friendly</button>
-                    <button class="personality-btn" onclick="pickPersonality(this,'creative')">Creative</button>
-                    <button class="personality-btn" onclick="pickPersonality(this,'technical')">Technical</button>
-                    <button class="personality-btn" onclick="pickPersonality(this,'concise')">Concise</button>
-                  </div>
-                </div>
+                <div class="form-row"><label class="form-label">Agent Name</label><input class="form-input" id="agent-name" type="text" placeholder="e.g. DesignBot" /></div>
+                <div class="form-row"><label class="form-label">What does it do?</label><textarea class="form-input form-textarea" id="agent-purpose" placeholder="Describe..." rows="2"></textarea></div>
+                <div class="form-row"><label class="form-label">Personality</label><div class="personality-options"><button class="personality-btn selected" onclick="pickPersonality(this)">Professional</button><button class="personality-btn" onclick="pickPersonality(this)">Friendly</button><button class="personality-btn" onclick="pickPersonality(this)">Creative</button><button class="personality-btn" onclick="pickPersonality(this)">Technical</button></div></div>
               </div>
-              <div class="builder-actions">
-                <button class="btn-primary" onclick="advanceAgentBuilder(2)">Next: Choose AIs</button>
-              </div>
+              <div class="builder-actions"><button class="btn-accent" onclick="advanceAgentBuilder(2)">Next: Choose AIs</button></div>
             </div>
-
-            <!-- Step 2: AI selection -->
-            <div class="builder-step" id="ab-step-2">
-              <h3 class="builder-step-title">Which AIs should this agent use?</h3>
-              <p class="section-desc">Pick the AIs that make sense for this agent's job</p>
-              <div class="ai-picker" id="ai-picker">
-                <!-- Filled by JS -->
-              </div>
-              <div class="builder-actions">
-                <button class="btn-secondary" onclick="advanceAgentBuilder(1)">Back</button>
-                <button class="btn-primary" onclick="advanceAgentBuilder(3)">Next: Access &amp; Skills</button>
-              </div>
-            </div>
-
-            <!-- Step 3: Connectors & Skills -->
-            <div class="builder-step" id="ab-step-3">
-              <h3 class="builder-step-title">What can this agent access?</h3>
-              <p class="section-desc">Choose which apps and skills this agent is allowed to use</p>
-              <div class="access-picker" id="access-picker">
-                <!-- Filled by JS -->
-              </div>
-              <div class="builder-actions">
-                <button class="btn-secondary" onclick="advanceAgentBuilder(2)">Back</button>
-                <button class="btn-primary" onclick="createAgent()">Create Agent</button>
-              </div>
-            </div>
+            <div class="builder-step" id="ab-step-2"><h3 class="section-title">Pick AIs</h3><div class="ai-picker" id="ai-picker"></div><div class="builder-actions"><button class="btn-outline" onclick="advanceAgentBuilder(1)">Back</button><button class="btn-accent" onclick="advanceAgentBuilder(3)">Next: Access</button></div></div>
+            <div class="builder-step" id="ab-step-3"><h3 class="section-title">Access &amp; Skills</h3><div class="access-picker" id="access-picker"></div><div class="builder-actions"><button class="btn-outline" onclick="advanceAgentBuilder(2)">Back</button><button class="btn-accent" onclick="createAgent()">Create Agent</button></div></div>
           </div>
         </div>
-
-        <!-- Agent Templates -->
-        <div class="section">
-          <h2 class="section-title">Agent Templates</h2>
-          <p class="section-desc">Start from a template and customize</p>
+        <div class="section"><h2 class="section-title">Templates</h2>
           <div class="templates-grid">
-            <button class="template-card" onclick="useAgentTemplate('designer')">
-              <span class="template-icon">&#127912;</span>
-              <span class="template-name">Designer</span>
-              <span class="template-desc">Creates images, logos, and visual assets using Midjourney + Flux</span>
-            </button>
-            <button class="template-card" onclick="useAgentTemplate('coder')">
-              <span class="template-icon">&#128187;</span>
-              <span class="template-name">Full-Stack Dev</span>
-              <span class="template-desc">Builds complete web apps with Claude + deploys automatically</span>
-            </button>
-            <button class="template-card" onclick="useAgentTemplate('researcher')">
-              <span class="template-icon">&#128218;</span>
-              <span class="template-name">Researcher</span>
-              <span class="template-desc">Deep research with Perplexity + Claude analysis and reports</span>
-            </button>
-            <button class="template-card" onclick="useAgentTemplate('content')">
-              <span class="template-icon">&#128221;</span>
-              <span class="template-name">Content Creator</span>
-              <span class="template-desc">Blog posts, social media, videos, and marketing copy</span>
-            </button>
-            <button class="template-card" onclick="useAgentTemplate('data')">
-              <span class="template-icon">&#128202;</span>
-              <span class="template-name">Data Analyst</span>
-              <span class="template-desc">Analyzes data, creates charts, writes reports</span>
-            </button>
-            <button class="template-card" onclick="useAgentTemplate('devops')">
-              <span class="template-icon">&#9881;</span>
-              <span class="template-name">DevOps</span>
-              <span class="template-desc">Manages deployments, monitors errors, maintains infrastructure</span>
-            </button>
+            <button class="template-card" onclick="useAgentTemplate('designer')"><span class="template-icon">&#127912;</span><span class="template-name">Designer</span></button>
+            <button class="template-card" onclick="useAgentTemplate('coder')"><span class="template-icon">&#128187;</span><span class="template-name">Full-Stack Dev</span></button>
+            <button class="template-card" onclick="useAgentTemplate('researcher')"><span class="template-icon">&#128218;</span><span class="template-name">Researcher</span></button>
+            <button class="template-card" onclick="useAgentTemplate('content')"><span class="template-icon">&#128221;</span><span class="template-name">Content</span></button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ──────────────────────── -->
-    <!-- PAGE: My Devices         -->
-    <!-- ──────────────────────── -->
+    <!-- ════════════ PAGE: Devices ════════════ -->
     <section class="page" id="page-devices">
-      <div class="topbar">
-        <button class="menu-toggle" onclick="toggleSidebar()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <h1 class="topbar-title">My Devices</h1>
-        <p class="topbar-subtitle">Your connected machines</p>
-      </div>
-
+      <div class="page-header"><h1 class="page-title">My Devices</h1><p class="page-sub">Your connected machines</p></div>
       <div class="page-scroll">
-        <!-- Connected -->
-        <div class="section">
-          <h2 class="section-title">Connected</h2>
-          <div class="device-list" id="device-list">
-            <div class="device-row">
-              <span class="status-dot online"></span>
-              <div class="device-info">
-                <span class="device-row-name">Mac mini</span>
-                <span class="device-row-meta">macOS &middot; Apple M2 &middot; 192.168.1.42</span>
-              </div>
-              <span class="device-row-status connected">Connected</span>
-              <button class="device-row-btn" onclick="manageDevice('mac-mini')">Manage</button>
-            </div>
+        <div class="section"><h2 class="section-title">Connected</h2>
+          <div class="device-list">
+            <div class="list-item"><div class="list-av" style="background:#CAFF33;color:#1a1a1e">&#9679;</div><div class="list-info"><span class="list-name">Mac mini</span><span class="list-meta">macOS &middot; M2 &middot; 192.168.1.42</span></div><span class="status-pill online">Connected</span></div>
           </div>
         </div>
-
-        <!-- Add new device -->
-        <div class="section">
-          <h2 class="section-title">Add a Device</h2>
-          <p class="section-desc">Connect a new computer so Claude can work on it for you</p>
-
+        <div class="section"><h2 class="section-title">Add Device</h2>
           <div class="add-device-grid">
-            <button class="add-device-card" onclick="startDeviceSetup('mac')">
-              <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="36" height="5" rx="2.5" stroke="currentColor" stroke-width="2"/><line x1="21" y1="19" x2="21" y2="24" stroke="currentColor" stroke-width="1.5"/><line x1="27" y1="19" x2="27" y2="24" stroke="currentColor" stroke-width="1.5"/><rect x="17" y="24" width="14" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
-              <span>Mac</span>
-            </button>
-            <button class="add-device-card" onclick="startDeviceSetup('windows')">
-              <svg viewBox="0 0 48 48" fill="none"><path d="M10 16L21 14.5V23.5H10V16Z" stroke="currentColor" stroke-width="2"/><path d="M23 14L38 12V23.5H23V14Z" stroke="currentColor" stroke-width="2"/><path d="M10 25.5H21V34.5L10 33V25.5Z" stroke="currentColor" stroke-width="2"/><path d="M23 25.5H38V37L23 35V25.5Z" stroke="currentColor" stroke-width="2"/></svg>
-              <span>Windows</span>
-            </button>
-            <button class="add-device-card" onclick="startDeviceSetup('linux')">
-              <svg viewBox="0 0 48 48" fill="none"><rect x="12" y="8" width="24" height="32" rx="2" stroke="currentColor" stroke-width="2"/><line x1="16" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="24" x2="32" y2="24" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="12" r="1.5" fill="#4ade80"/></svg>
-              <span>Linux</span>
-            </button>
-            <button class="add-device-card" onclick="startDeviceSetup('cloud')">
-              <svg viewBox="0 0 48 48" fill="none"><path d="M14 32c-5 0-8-3.5-8-7.5s3-7 8-7c0-6 5-10 12-10s12 4 12 10c5 0 8 3.5 8 7.5S43 32 38 32z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-              <span>Cloud</span>
-            </button>
+            <button class="template-card" onclick="startDeviceSetup('mac')"><span class="template-icon">&#128187;</span><span class="template-name">Mac</span></button>
+            <button class="template-card" onclick="startDeviceSetup('windows')"><span class="template-icon">&#128421;</span><span class="template-name">Windows</span></button>
+            <button class="template-card" onclick="startDeviceSetup('linux')"><span class="template-icon">&#128424;</span><span class="template-name">Linux</span></button>
+            <button class="template-card" onclick="startDeviceSetup('cloud')"><span class="template-icon">&#9729;</span><span class="template-name">Cloud</span></button>
           </div>
-
-          <!-- Setup wizard (appears when you click a device) -->
           <div class="device-setup hidden" id="device-setup">
-            <div class="setup-header">
-              <h3 class="setup-title" id="setup-title">Set up your Mac</h3>
-              <button class="setup-close" onclick="closeDeviceSetup()">&times;</button>
-            </div>
-
-            <!-- Step 1: Download -->
-            <div class="setup-step active" id="ds-step-1">
-              <div class="setup-step-header">
-                <span class="setup-step-num">1</span>
-                <span class="setup-step-label">Download Claude Code on your device</span>
-              </div>
-              <p class="setup-info">Open this link on the device you want to connect, and click the download button. That's it.</p>
-              <button class="btn-primary btn-lg" onclick="advanceDeviceSetup(2)">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:8px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Download for Mac
-              </button>
-              <p class="setup-alt">Or share this link with your device: <span class="setup-link">claude.ai/download</span></p>
-            </div>
-
-            <!-- Step 2: Sign in -->
-            <div class="setup-step" id="ds-step-2">
-              <div class="setup-step-header">
-                <span class="setup-step-num">2</span>
-                <span class="setup-step-label">Sign in on your device</span>
-              </div>
-              <p class="setup-info">Open Claude Code on your device and sign in with your account. We'll detect it automatically.</p>
-              <div class="setup-waiting">
-                <div class="waiting-spinner"></div>
-                <span>Waiting for sign-in...</span>
-              </div>
-              <button class="btn-secondary" onclick="advanceDeviceSetup(3)">I've signed in</button>
-            </div>
-
-            <!-- Step 3: Done -->
-            <div class="setup-step" id="ds-step-3">
-              <div class="setup-step-header">
-                <span class="setup-step-num check">&#10003;</span>
-                <span class="setup-step-label">Connected!</span>
-              </div>
-              <p class="setup-info">Your device is connected and ready. Claude can now work on it remotely.</p>
-              <button class="btn-primary" onclick="closeDeviceSetup()">Done</button>
-            </div>
+            <div class="card-header"><h3 class="card-title" id="setup-title">Set up your Mac</h3><button class="task-close" onclick="closeDeviceSetup()">&times;</button></div>
+            <div class="setup-step active" id="ds-step-1"><p class="section-desc">Download Coport on the device you want to connect.</p><button class="btn-accent btn-lg" onclick="advanceDeviceSetup(2)">Download for Mac</button></div>
+            <div class="setup-step" id="ds-step-2"><p class="section-desc">Sign in on your device. We'll detect it automatically.</p><div class="setup-waiting"><div class="waiting-spinner"></div><span>Waiting...</span></div><button class="btn-outline" onclick="advanceDeviceSetup(3)">I've signed in</button></div>
+            <div class="setup-step" id="ds-step-3"><p class="section-desc" style="color:#CAFF33">Connected! Your device is ready.</p><button class="btn-accent" onclick="closeDeviceSetup()">Done</button></div>
           </div>
         </div>
       </div>
@@ -605,18 +364,12 @@
 
   </main>
 
-  <!-- ═══ Modal ═══ -->
+  <!-- Modal -->
   <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
     <div class="modal" onclick="event.stopPropagation()">
-      <div class="modal-header">
-        <h2 class="modal-title" id="modal-title">Connect</h2>
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-      </div>
+      <div class="modal-header"><h2 class="modal-title" id="modal-title">Connect</h2><button class="task-close" onclick="closeModal()">&times;</button></div>
       <div class="modal-body" id="modal-body"></div>
-      <div class="modal-footer" id="modal-footer">
-        <button class="btn-ghost" onclick="closeModal()">Cancel</button>
-        <button class="btn-primary" id="modal-action-btn" onclick="modalAction()">Connect</button>
-      </div>
+      <div class="modal-footer"><button class="btn-outline" onclick="closeModal()">Cancel</button><button class="btn-accent" id="modal-action-btn" onclick="modalAction()">Connect</button></div>
     </div>
   </div>
 
