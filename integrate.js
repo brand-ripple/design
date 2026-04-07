@@ -271,12 +271,12 @@ function sendChat() {
   const welcome = document.querySelector('.chat-welcome');
   if (welcome) welcome.remove();
 
-  // Hide welcome
+  // Hide welcome, show scrolling chat
   const w = document.getElementById('welcome');
   if (w) w.style.display = 'none';
-  // Hide suggestions
   const s = document.getElementById('suggestions');
   if (s) s.style.display = 'none';
+  document.getElementById('chat-area').classList.add('has-messages');
 
   addMessage('user', text);
   simulateResponse(text);
