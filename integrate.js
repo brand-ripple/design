@@ -307,7 +307,7 @@ function simulateResponse(userText) {
       { label: 'Creating variations', ai: 'Flux' },
       { label: 'Finalizing output', ai: 'Claude' },
     ];
-    response = "I've generated your images using Flux for the best quality. Here are 4 variations — click any to download or refine further.";
+    response = "Here you go — I painted 4 variations using Flux. Each one's a little different. Click any to keep refining, or tell me what to change.";
   } else if (lower.includes('website') || lower.includes('build') || lower.includes('app')) {
     steps = [
       { label: 'Planning the architecture', ai: 'Claude' },
@@ -316,7 +316,7 @@ function simulateResponse(userText) {
       { label: 'Running tests', ai: 'Claude' },
       { label: 'Deploying to your device', ai: 'Claude' },
     ];
-    response = "Your website is built and running on your Mac mini. I used Claude for the code and Flux for the hero image. Want to make any changes?";
+    response = "It's alive! Your site is running on your Mac mini. Claude wrote the code and Flux designed the visuals. Want to tweak anything?";
   } else if (lower.includes('music') || lower.includes('song') || lower.includes('audio')) {
     steps = [
       { label: 'Understanding the vibe', ai: 'Claude' },
@@ -324,7 +324,7 @@ function simulateResponse(userText) {
       { label: 'Generating vocals', ai: 'ElevenLabs' },
       { label: 'Mixing and mastering', ai: 'Suno' },
     ];
-    response = "Your track is ready! I used Suno for composition and ElevenLabs for the vocals. Play it below or download the file.";
+    response = "Your track is ready — I think you'll love it. Suno composed the melody and ElevenLabs brought the vocals to life. Have a listen.";
   } else if (lower.includes('video')) {
     steps = [
       { label: 'Planning the video', ai: 'Claude' },
@@ -353,7 +353,7 @@ function simulateResponse(userText) {
       { label: 'Thinking...', ai: 'Claude' },
       { label: 'Working on it', ai: 'Claude' },
     ];
-    response = "Done! Let me know if you'd like me to adjust anything or take it further.";
+    response = "All done! Let me know if you want me to take it further — I'm here whenever you need me.";
   }
 
   showTaskPanel(steps, response);
@@ -647,12 +647,16 @@ function init() {
   renderSuperpowers();
   renderAgentList();
 
-  // Set greeting based on time
+  // Warm, time-aware greeting
   const hour = new Date().getHours();
   let greeting = 'Good evening';
-  if (hour < 12) greeting = 'Good morning';
-  else if (hour < 18) greeting = 'Good afternoon';
-  document.querySelector('.topbar-title').textContent = greeting;
+  if (hour < 6) greeting = 'Burning the midnight oil?';
+  else if (hour < 12) greeting = 'Good morning';
+  else if (hour < 17) greeting = 'Good afternoon';
+  else if (hour < 21) greeting = 'Good evening';
+  else greeting = 'Still going strong?';
+  const greetEl = document.getElementById('welcome-greeting');
+  if (greetEl) greetEl.textContent = greeting;
 }
 
 init();
