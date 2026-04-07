@@ -3,549 +3,619 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Claude Code — Easy Integration</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Coport — Your AI Command Center</title>
   <link rel="stylesheet" href="integrate.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-logo">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 0L12.5 7.5H20L14 12.5L16.5 20L10 15.5L3.5 20L6 12.5L0 7.5H7.5L10 0Z" fill="white"/>
-      </svg>
-      <span class="nav-logo-text">CLAUDE CODE</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="#" class="active-link">INTEGRATE</a></li>
-      <li><a href="#">DOCS</a></li>
-    </ul>
-    <div class="nav-actions">
-      <a href="#" class="btn-login">LOGIN</a>
-      <a href="#" class="btn-get-started">GET STARTED</a>
-    </div>
-  </nav>
+  <!-- ═══ Sidebar ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-logo">
+        <svg width="22" height="22" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.5 7.5H20L14 12.5L16.5 20L10 15.5L3.5 20L6 12.5L0 7.5H7.5L10 0Z" fill="white"/></svg>
+        <span class="logo-text">Coport</span>
+      </div>
 
-  <!-- Hero — Luma style centered layout -->
-  <section class="integrate-hero">
-    <div class="integrate-hero-content">
-      <div class="integrate-badge">
-        <div class="badge-dots"><span class="badge-dot"></span><span class="badge-dot"></span><span class="badge-dot"></span></div>
-        Claude Code
-      </div>
-      <h1 class="integrate-title">
-        Easy integrations that<br/>make you productive
-      </h1>
-      <p class="integrate-desc">
-        Connect your Mac mini, plug in MCP servers, link your favorite
-        apps — all in a few clicks. Claude Code learns your setup and
-        gets smarter over time.
-      </p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-pill btn-pill-primary" onclick="document.querySelector('.mode-tabs').scrollIntoView({behavior:'smooth'})">Get started</a>
-        <a href="#" class="btn-pill btn-pill-secondary">View all integrations</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mode Tabs -->
-  <div class="mode-tabs">
-    <button class="mode-tab active" onclick="switchMode('devices')">My Devices</button>
-    <button class="mode-tab" onclick="switchMode('mcp')">MCP Servers</button>
-    <button class="mode-tab" onclick="switchMode('apps')">Apps &amp; Software</button>
-    <button class="mode-tab" onclick="switchMode('learn')">Learning Hub</button>
-  </div>
-
-  <!-- ════════════════════════════════════════════ -->
-  <!-- MODE: My Devices (wizard)                    -->
-  <!-- ════════════════════════════════════════════ -->
-  <section class="wizard mode-content active" id="mode-devices">
-    <div class="wizard-steps-bar">
-      <div class="wizard-step-indicator active" data-step="1">
-        <span class="indicator-num">1</span>
-        <span class="indicator-label">Choose Device</span>
-      </div>
-      <div class="wizard-connector-line"></div>
-      <div class="wizard-step-indicator" data-step="2">
-        <span class="indicator-num">2</span>
-        <span class="indicator-label">Connect</span>
-      </div>
-      <div class="wizard-connector-line"></div>
-      <div class="wizard-step-indicator" data-step="3">
-        <span class="indicator-num">3</span>
-        <span class="indicator-label">Configure</span>
-      </div>
-      <div class="wizard-connector-line"></div>
-      <div class="wizard-step-indicator" data-step="4">
-        <span class="indicator-num">4</span>
-        <span class="indicator-label">Ready</span>
-      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-item active" onclick="showPage('home')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Home</span>
+        </button>
+        <button class="nav-item" onclick="showPage('ai-hub')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8l2.8-2.8M17 7l2.8-2.8"/></svg>
+          <span>AI Hub</span>
+        </button>
+        <button class="nav-item" onclick="showPage('superpowers')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Superpowers</span>
+        </button>
+        <button class="nav-item" onclick="showPage('automations')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          <span>Automations</span>
+        </button>
+        <button class="nav-item" onclick="showPage('agents')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="18" cy="6" r="2"/><path d="M18 4v-2M20 6h2"/></svg>
+          <span>My Agents</span>
+        </button>
+        <button class="nav-item" onclick="showPage('devices')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>My Devices</span>
+        </button>
+      </nav>
     </div>
 
-    <!-- Step 1: Choose Device -->
-    <div class="wizard-panel active" id="step-1">
-      <h2 class="panel-title">What are you connecting to?</h2>
-      <p class="panel-subtitle">Select your device type to get started</p>
-      <div class="device-grid">
-        <button class="device-card" data-device="mac-mini" onclick="selectDevice(this)">
-          <div class="device-icon">
-            <svg viewBox="0 0 80 80" fill="none"><rect x="10" y="22" width="60" height="8" rx="4" stroke="currentColor" stroke-width="2"/><line x1="36" y1="30" x2="36" y2="36" stroke="currentColor" stroke-width="1.5"/><line x1="44" y1="30" x2="44" y2="36" stroke="currentColor" stroke-width="1.5"/><rect x="28" y="36" width="24" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/><circle cx="64" cy="26" r="1.5" fill="#e05a2b"/></svg>
-          </div>
-          <span class="device-name">Mac mini</span>
-          <span class="device-meta">macOS &middot; Apple Silicon</span>
+    <!-- Connected devices mini-status -->
+    <div class="sidebar-bottom">
+      <div class="sidebar-devices">
+        <div class="mini-device">
+          <span class="status-dot online"></span>
+          <span class="mini-name">Mac mini</span>
+        </div>
+        <div class="mini-device">
+          <span class="status-dot offline"></span>
+          <span class="mini-name">Linux Server</span>
+        </div>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar">U</div>
+        <span class="user-name">User</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══ Main Content ═══ -->
+  <main class="main">
+
+    <!-- ──────────────────────────── -->
+    <!-- PAGE: Home / Chat Workspace -->
+    <!-- ──────────────────────────── -->
+    <section class="page active" id="page-home">
+
+      <!-- Top bar -->
+      <div class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
-        <button class="device-card" data-device="mac-desktop" onclick="selectDevice(this)">
-          <div class="device-icon">
-            <svg viewBox="0 0 80 80" fill="none"><rect x="8" y="16" width="64" height="40" rx="3" stroke="currentColor" stroke-width="2"/><rect x="14" y="22" width="52" height="28" stroke="currentColor" stroke-width="1"/><path d="M4 56H76L70 62H10Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-          </div>
-          <span class="device-name">Mac Desktop</span>
-          <span class="device-meta">iMac &middot; MacBook &middot; Mac Pro</span>
+        <h1 class="topbar-title">Good evening</h1>
+        <div class="topbar-actions">
+          <button class="topbar-btn" onclick="showPage('ai-hub')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8l2.8-2.8M17 7l2.8-2.8"/></svg>
+            <span>AI Hub</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick actions grid -->
+      <div class="quick-actions-home">
+        <button class="qa-card" onclick="prefillChat('Build me a website')">
+          <span class="qa-icon">&#127760;</span>
+          <span class="qa-label">Build a website</span>
         </button>
-        <button class="device-card" data-device="linux-server" onclick="selectDevice(this)">
-          <div class="device-icon">
-            <svg viewBox="0 0 80 80" fill="none"><rect x="16" y="12" width="48" height="56" rx="3" stroke="currentColor" stroke-width="2"/><line x1="24" y1="24" x2="56" y2="24" stroke="currentColor" stroke-width="1.5"/><line x1="24" y1="36" x2="56" y2="36" stroke="currentColor" stroke-width="1.5"/><line x1="24" y1="48" x2="56" y2="48" stroke="currentColor" stroke-width="1.5"/><circle cx="52" cy="18" r="2" fill="#e05a2b"/><circle cx="52" cy="30" r="2" fill="#4ade80"/><circle cx="52" cy="42" r="2" fill="#4ade80"/><circle cx="52" cy="54" r="2" fill="#888"/></svg>
-          </div>
-          <span class="device-name">Linux Server</span>
-          <span class="device-meta">Ubuntu &middot; Debian &middot; Fedora</span>
+        <button class="qa-card" onclick="prefillChat('Generate product images for my store')">
+          <span class="qa-icon">&#127912;</span>
+          <span class="qa-label">Generate images</span>
         </button>
-        <button class="device-card" data-device="windows" onclick="selectDevice(this)">
-          <div class="device-icon">
-            <svg viewBox="0 0 80 80" fill="none"><path d="M16 24L36 21V39H16V24Z" stroke="currentColor" stroke-width="2"/><path d="M40 20L64 16V39H40V20Z" stroke="currentColor" stroke-width="2"/><path d="M16 43H36V61L16 58V43Z" stroke="currentColor" stroke-width="2"/><path d="M40 43H64V66L40 62V43Z" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <span class="device-name">Windows PC</span>
-          <span class="device-meta">WSL &middot; Windows 11</span>
+        <button class="qa-card" onclick="prefillChat('Analyze my data and create a report')">
+          <span class="qa-icon">&#128202;</span>
+          <span class="qa-label">Analyze data</span>
         </button>
-        <button class="device-card" data-device="raspberry-pi" onclick="selectDevice(this)">
-          <div class="device-icon">
-            <svg viewBox="0 0 80 80" fill="none"><rect x="14" y="22" width="52" height="36" rx="3" stroke="currentColor" stroke-width="2"/><circle cx="22" cy="30" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="58" cy="30" r="2" stroke="currentColor" stroke-width="1.5"/><rect x="30" y="58" width="20" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="18" y1="14" x2="18" y2="22" stroke="#4ade80" stroke-width="1.5"/><line x1="22" y1="14" x2="22" y2="22" stroke="#4ade80" stroke-width="1.5"/><line x1="26" y1="14" x2="26" y2="22" stroke="#4ade80" stroke-width="1.5"/><line x1="30" y1="14" x2="30" y2="22" stroke="#4ade80" stroke-width="1.5"/></svg>
-          </div>
-          <span class="device-name">Raspberry Pi</span>
-          <span class="device-meta">Pi 4 &middot; Pi 5 &middot; ARM</span>
-        </button>
-        <button class="device-card" data-device="cloud-vm" onclick="selectDevice(this)">
-          <div class="device-icon">
-            <svg viewBox="0 0 80 80" fill="none"><path d="M22 52C14 52 10 46 10 40C10 34 14 28 22 28C22 18 30 12 40 12C50 12 58 18 58 28C66 28 70 34 70 40C70 46 66 52 58 52Z" stroke="currentColor" stroke-width="2" fill="none"/><line x1="30" y1="52" x2="30" y2="64" stroke="currentColor" stroke-width="1.5"/><line x1="40" y1="52" x2="40" y2="68" stroke="currentColor" stroke-width="1.5"/><line x1="50" y1="52" x2="50" y2="64" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="66" r="2" fill="#e05a2b"/><circle cx="40" cy="70" r="2" fill="#e05a2b"/><circle cx="50" cy="66" r="2" fill="#e05a2b"/></svg>
-          </div>
-          <span class="device-name">Cloud VM</span>
-          <span class="device-meta">AWS &middot; GCP &middot; Azure</span>
+        <button class="qa-card" onclick="prefillChat('Set up my new project with best practices')">
+          <span class="qa-icon">&#128640;</span>
+          <span class="qa-label">Start a project</span>
         </button>
       </div>
-      <div class="panel-actions">
-        <button class="btn-next" id="btn-to-step2" disabled onclick="goToStep(2)">Continue &rarr;</button>
-      </div>
-    </div>
 
-    <!-- Step 2: Connect -->
-    <div class="wizard-panel" id="step-2">
-      <h2 class="panel-title">Connect to your <span id="device-label">device</span></h2>
-      <p class="panel-subtitle">Choose how you'd like to connect</p>
-      <div class="connect-methods">
-        <button class="connect-card" onclick="selectConnection(this, 'auto')">
-          <div class="connect-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><path d="M14 20L18 24L26 16" stroke="#4ade80" stroke-width="2.5" fill="none"/></svg></div>
-          <div class="connect-info"><span class="connect-name">Auto-Detect</span><span class="connect-desc">Scan your local network and connect automatically</span></div>
-          <span class="connect-tag recommended">Recommended</span>
-        </button>
-        <button class="connect-card" onclick="selectConnection(this, 'ssh')">
-          <div class="connect-icon"><svg viewBox="0 0 40 40" fill="none"><rect x="6" y="14" width="28" height="16" rx="2" stroke="currentColor" stroke-width="2"/><text x="12" y="26" fill="currentColor" font-size="9" font-family="monospace">&gt;_</text></svg></div>
-          <div class="connect-info"><span class="connect-name">SSH Connection</span><span class="connect-desc">Connect using an SSH key or password</span></div>
-        </button>
-        <button class="connect-card" onclick="selectConnection(this, 'ip')">
-          <div class="connect-icon"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/><ellipse cx="20" cy="20" rx="8" ry="14" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1.5"/></svg></div>
-          <div class="connect-info"><span class="connect-name">IP Address / Hostname</span><span class="connect-desc">Enter the address of your machine directly</span></div>
-        </button>
-      </div>
-      <div class="connect-form hidden" id="connect-form">
-        <div class="form-row"><label class="form-label" for="host-input">Host</label><input class="form-input" id="host-input" type="text" placeholder="192.168.1.100 or my-mac.local" /></div>
-        <div class="form-row"><label class="form-label" for="user-input">Username</label><input class="form-input" id="user-input" type="text" placeholder="your-username" /></div>
-        <div class="form-row" id="auth-row"><label class="form-label" for="auth-input">SSH Key Path</label><div class="form-input-group"><input class="form-input" id="auth-input" type="text" placeholder="~/.ssh/id_ed25519" /><button class="btn-browse" onclick="browsePath()">Browse</button></div></div>
-      </div>
-      <div class="scan-container hidden" id="scan-container">
-        <div class="scan-animation"><div class="scan-ring ring-1"></div><div class="scan-ring ring-2"></div><div class="scan-ring ring-3"></div><div class="scan-center-dot"></div></div>
-        <p class="scan-text">Scanning local network...</p>
-        <div class="discovered-devices hidden" id="discovered-devices">
-          <div class="discovered-device" onclick="pickDiscovered(this)"><span class="device-status online"></span><span class="discovered-name">Mac-mini.local</span><span class="discovered-ip">192.168.1.42</span></div>
-          <div class="discovered-device" onclick="pickDiscovered(this)"><span class="device-status online"></span><span class="discovered-name">My-MacBook-Pro.local</span><span class="discovered-ip">192.168.1.87</span></div>
-        </div>
-      </div>
-      <div class="panel-actions">
-        <button class="btn-back" onclick="goToStep(1)">&larr; Back</button>
-        <button class="btn-next" id="btn-to-step3" disabled onclick="goToStep(3)">Connect &rarr;</button>
-      </div>
-    </div>
-
-    <!-- Step 3: Configure -->
-    <div class="wizard-panel" id="step-3">
-      <h2 class="panel-title">Configuring Claude Code</h2>
-      <p class="panel-subtitle">We're setting everything up on your machine</p>
-      <div class="config-tasks" id="config-tasks">
-        <div class="config-task" data-task="verify"><span class="task-status pending"></span><span class="task-label">Verifying connection</span></div>
-        <div class="config-task" data-task="install"><span class="task-status pending"></span><span class="task-label">Installing Claude Code CLI</span></div>
-        <div class="config-task" data-task="auth"><span class="task-status pending"></span><span class="task-label">Authenticating with your account</span></div>
-        <div class="config-task" data-task="env"><span class="task-status pending"></span><span class="task-label">Setting up environment &amp; permissions</span></div>
-        <div class="config-task" data-task="test"><span class="task-status pending"></span><span class="task-label">Running connection test</span></div>
-      </div>
-      <div class="panel-actions">
-        <button class="btn-back" onclick="goToStep(2)">&larr; Back</button>
-        <button class="btn-next hidden" id="btn-to-step4" onclick="goToStep(4)">Finish Setup &rarr;</button>
-      </div>
-    </div>
-
-    <!-- Step 4: Ready -->
-    <div class="wizard-panel" id="step-4">
-      <h2 class="panel-title">You're all set</h2>
-      <p class="panel-subtitle">Claude Code is connected and ready to work on your machine</p>
-      <div class="ready-card">
-        <div class="ready-status">
-          <svg viewBox="0 0 64 64" fill="none" class="ready-check"><circle cx="32" cy="32" r="28" stroke="#4ade80" stroke-width="3"/><path d="M20 32L28 40L44 24" stroke="#4ade80" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div class="ready-info"><span class="ready-device-name" id="ready-device-name">Mac-mini.local</span><span class="ready-device-ip" id="ready-device-ip">192.168.1.42</span></div>
-        </div>
-        <div class="ready-details">
-          <div class="ready-detail"><span class="detail-label">Status</span><span class="detail-value status-online">Connected</span></div>
-          <div class="ready-detail"><span class="detail-label">Claude Code</span><span class="detail-value">v1.0 installed</span></div>
-          <div class="ready-detail"><span class="detail-label">Auth</span><span class="detail-value">Authenticated</span></div>
-        </div>
-      </div>
-      <div class="quick-actions">
-        <h3 class="quick-title">Quick Actions</h3>
-        <div class="quick-grid">
-          <button class="quick-btn" onclick="quickAction('terminal')"><svg viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><text x="9" y="21" fill="currentColor" font-size="8" font-family="monospace">&gt;_</text></svg><span>Open Terminal</span></button>
-          <button class="quick-btn" onclick="quickAction('project')"><svg viewBox="0 0 32 32" fill="none"><path d="M4 10L14 8L14 12H28V26H4V10Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg><span>New Project</span></button>
-          <button class="quick-btn" onclick="quickAction('clone')"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="10" x2="16" y2="22" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="16" x2="22" y2="16" stroke="currentColor" stroke-width="1.5"/></svg><span>Clone Repo</span></button>
-          <button class="quick-btn" onclick="quickAction('settings')"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4"/></svg><span>Settings</span></button>
-        </div>
-      </div>
-      <div class="panel-actions"><button class="btn-next" onclick="addAnother()">+ Add Another Device</button></div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════ -->
-  <!-- MODE: MCP Servers                            -->
-  <!-- ════════════════════════════════════════════ -->
-  <section class="wizard mode-content" id="mode-mcp">
-    <div class="search-bar">
-      <svg class="search-icon" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg>
-      <input class="search-input" type="text" placeholder="Search MCP servers..." oninput="filterIntegrations(this, 'mcp')" />
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Popular MCP Servers</h3>
-      <div class="catalog-grid" id="mcp-popular">
-        <div class="integration-card" onclick="openMcpSetup('filesystem')">
-          <div class="int-icon">&#128193;</div>
-          <div class="int-details"><span class="int-name">Filesystem</span><span class="int-desc">Read, write, and manage local files</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('github')">
-          <div class="int-icon">&#128025;</div>
-          <div class="int-details"><span class="int-name">GitHub</span><span class="int-desc">Repos, issues, PRs, and actions</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('postgres')">
-          <div class="int-icon">&#128451;</div>
-          <div class="int-details"><span class="int-name">PostgreSQL</span><span class="int-desc">Query and manage your Postgres databases</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('slack')">
-          <div class="int-icon">&#128172;</div>
-          <div class="int-details"><span class="int-name">Slack</span><span class="int-desc">Send messages, read channels, manage workspace</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('puppeteer')">
-          <div class="int-icon">&#127760;</div>
-          <div class="int-details"><span class="int-name">Puppeteer</span><span class="int-desc">Browser automation and web scraping</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('memory')">
-          <div class="int-icon">&#129504;</div>
-          <div class="int-details"><span class="int-name">Memory</span><span class="int-desc">Persistent knowledge graph for context</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Data &amp; Databases</h3>
-      <div class="catalog-grid" id="mcp-data">
-        <div class="integration-card" onclick="openMcpSetup('sqlite')">
-          <div class="int-icon">&#128450;</div>
-          <div class="int-details"><span class="int-name">SQLite</span><span class="int-desc">Lightweight local database access</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('redis')">
-          <div class="int-icon">&#9889;</div>
-          <div class="int-details"><span class="int-name">Redis</span><span class="int-desc">In-memory cache and key-value store</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('mysql')">
-          <div class="int-icon">&#128451;</div>
-          <div class="int-details"><span class="int-name">MySQL</span><span class="int-desc">Query and manage MySQL databases</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Developer Tools</h3>
-      <div class="catalog-grid" id="mcp-devtools">
-        <div class="integration-card" onclick="openMcpSetup('docker')">
-          <div class="int-icon">&#128011;</div>
-          <div class="int-details"><span class="int-name">Docker</span><span class="int-desc">Manage containers, images, and volumes</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('kubernetes')">
-          <div class="int-icon">&#9781;</div>
-          <div class="int-details"><span class="int-name">Kubernetes</span><span class="int-desc">Cluster management and deployment</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openMcpSetup('git')">
-          <div class="int-icon">&#128736;</div>
-          <div class="int-details"><span class="int-name">Git</span><span class="int-desc">Version control operations</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Custom Server</h3>
-      <p class="panel-subtitle" style="margin-top:-8px">Connect any MCP-compatible server by URL or local path</p>
-      <div class="connect-form" style="max-width:560px">
-        <div class="form-row"><label class="form-label" for="mcp-url-input">Server URL or path</label><input class="form-input" id="mcp-url-input" type="text" placeholder="npx -y @modelcontextprotocol/server-filesystem /path" /></div>
-        <div class="form-row"><label class="form-label" for="mcp-name-input">Display Name</label><input class="form-input" id="mcp-name-input" type="text" placeholder="My Custom Server" /></div>
-        <div class="panel-actions" style="margin-top:8px"><button class="btn-next" onclick="connectCustomMcp()">Add Server &rarr;</button></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════ -->
-  <!-- MODE: Apps & Software                        -->
-  <!-- ════════════════════════════════════════════ -->
-  <section class="wizard mode-content" id="mode-apps">
-    <div class="search-bar">
-      <svg class="search-icon" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg>
-      <input class="search-input" type="text" placeholder="Search apps and software..." oninput="filterIntegrations(this, 'apps')" />
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">IDEs &amp; Editors</h3>
-      <div class="catalog-grid" id="apps-ides">
-        <div class="integration-card" onclick="openAppSetup('vscode')">
-          <div class="int-icon">&#9998;</div>
-          <div class="int-details"><span class="int-name">VS Code</span><span class="int-desc">Claude Code extension for Visual Studio Code</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Install</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('jetbrains')">
-          <div class="int-icon">&#9881;</div>
-          <div class="int-details"><span class="int-name">JetBrains</span><span class="int-desc">IntelliJ, WebStorm, PyCharm and more</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Install</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('neovim')">
-          <div class="int-icon">&#128421;</div>
-          <div class="int-details"><span class="int-name">Neovim</span><span class="int-desc">Terminal-based editor integration</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Install</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Productivity &amp; Communication</h3>
-      <div class="catalog-grid" id="apps-productivity">
-        <div class="integration-card" onclick="openAppSetup('notion')">
-          <div class="int-icon">&#128221;</div>
-          <div class="int-details"><span class="int-name">Notion</span><span class="int-desc">Search and update pages, databases, and docs</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('linear')">
-          <div class="int-icon">&#9670;</div>
-          <div class="int-details"><span class="int-name">Linear</span><span class="int-desc">Issue tracking, project management</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('google-drive')">
-          <div class="int-icon">&#128194;</div>
-          <div class="int-details"><span class="int-name">Google Drive</span><span class="int-desc">Access Docs, Sheets, and files</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('discord')">
-          <div class="int-icon">&#128172;</div>
-          <div class="int-details"><span class="int-name">Discord</span><span class="int-desc">Bots, messages, and server management</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Cloud &amp; DevOps</h3>
-      <div class="catalog-grid" id="apps-cloud">
-        <div class="integration-card" onclick="openAppSetup('vercel')">
-          <div class="int-icon">&#9650;</div>
-          <div class="int-details"><span class="int-name">Vercel</span><span class="int-desc">Deploy and manage web projects</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('aws')">
-          <div class="int-icon">&#9729;</div>
-          <div class="int-details"><span class="int-name">AWS</span><span class="int-desc">S3, Lambda, EC2, and more</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('cloudflare')">
-          <div class="int-icon">&#9928;</div>
-          <div class="int-details"><span class="int-name">Cloudflare</span><span class="int-desc">Workers, Pages, DNS, and CDN</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('supabase')">
-          <div class="int-icon">&#9889;</div>
-          <div class="int-details"><span class="int-name">Supabase</span><span class="int-desc">Database, auth, and storage</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Design &amp; Media</h3>
-      <div class="catalog-grid" id="apps-design">
-        <div class="integration-card" onclick="openAppSetup('figma')">
-          <div class="int-icon">&#127912;</div>
-          <div class="int-details"><span class="int-name">Figma</span><span class="int-desc">Read designs and export assets</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-        <div class="integration-card" onclick="openAppSetup('sentry')">
-          <div class="int-icon">&#128027;</div>
-          <div class="int-details"><span class="int-name">Sentry</span><span class="int-desc">Error tracking and performance monitoring</span></div>
-          <span class="int-status"></span>
-          <button class="int-action-btn">Connect</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════ -->
-  <!-- MODE: Learning Hub                           -->
-  <!-- ════════════════════════════════════════════ -->
-  <section class="wizard mode-content" id="mode-learn">
-    <h2 class="panel-title">Learning Hub</h2>
-    <p class="panel-subtitle">Claude Code learns from your integrations and adapts to your workflow over time</p>
-
-    <!-- Learning status -->
-    <div class="ready-card" style="margin-bottom:32px">
-      <div class="ready-status">
-        <svg viewBox="0 0 64 64" fill="none" class="ready-check" style="width:48px;height:48px">
-          <circle cx="32" cy="32" r="28" stroke="#e05a2b" stroke-width="3"/>
-          <circle cx="32" cy="22" r="6" stroke="#e05a2b" stroke-width="2.5" fill="none"/>
-          <path d="M20 42C20 35 25 32 32 32C39 32 44 35 44 42" stroke="#e05a2b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        </svg>
-        <div class="ready-info">
-          <span class="ready-device-name">Adaptive Intelligence</span>
-          <span class="ready-device-ip" style="font-family:inherit;color:#888">Claude Code remembers your preferences, learns your patterns, and improves</span>
-        </div>
-      </div>
-      <div class="ready-details">
-        <div class="ready-detail"><span class="detail-label">Integrations</span><span class="detail-value" id="learn-int-count">0 connected</span></div>
-        <div class="ready-detail"><span class="detail-label">Patterns Learned</span><span class="detail-value" id="learn-patterns">Getting started</span></div>
-        <div class="ready-detail"><span class="detail-label">Suggestions</span><span class="detail-value status-online" id="learn-suggestions">Enabled</span></div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">What Claude Code Learns</h3>
-      <div class="catalog-grid">
-        <div class="integration-card" style="cursor:default">
-          <div class="int-icon">&#128200;</div>
-          <div class="int-details"><span class="int-name">Your Workflows</span><span class="int-desc">Common sequences of actions, preferred tools, and patterns</span></div>
-        </div>
-        <div class="integration-card" style="cursor:default">
-          <div class="int-icon">&#128736;</div>
-          <div class="int-details"><span class="int-name">Project Context</span><span class="int-desc">Codebase structure, dependencies, and architecture decisions</span></div>
-        </div>
-        <div class="integration-card" style="cursor:default">
-          <div class="int-icon">&#128161;</div>
-          <div class="int-details"><span class="int-name">Your Preferences</span><span class="int-desc">Code style, naming conventions, and communication tone</span></div>
-        </div>
-        <div class="integration-card" style="cursor:default">
-          <div class="int-icon">&#128279;</div>
-          <div class="int-details"><span class="int-name">Integration Links</span><span class="int-desc">How your apps and tools connect, what data flows where</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="catalog-section">
-      <h3 class="catalog-heading">Preferences</h3>
-      <div class="connect-form" style="max-width:560px">
-        <div class="form-row">
-          <label class="form-label">Learning Mode</label>
-          <div style="display:flex;gap:8px">
-            <button class="int-action-btn connected-btn" style="flex:1" onclick="setLearnMode(this,'active')">Active</button>
-            <button class="int-action-btn" style="flex:1" onclick="setLearnMode(this,'passive')">Passive</button>
-            <button class="int-action-btn" style="flex:1" onclick="setLearnMode(this,'off')">Off</button>
+      <!-- Chat / task area -->
+      <div class="workspace">
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-welcome">
+            <p class="welcome-text">What would you like to build today?</p>
+            <p class="welcome-sub">I'll pick the best AI for each part of the job automatically.</p>
           </div>
         </div>
-        <div class="form-row">
-          <label class="form-label">Smart Suggestions</label>
-          <div style="display:flex;gap:8px">
-            <button class="int-action-btn connected-btn" style="flex:1" onclick="setSuggestions(this,true)">On</button>
-            <button class="int-action-btn" style="flex:1" onclick="setSuggestions(this,false)">Off</button>
+
+        <!-- Active task panel (appears when a task is running) -->
+        <div class="task-panel hidden" id="task-panel">
+          <div class="task-header">
+            <div class="task-title-row">
+              <span class="task-pulse"></span>
+              <span class="task-title" id="task-title">Working...</span>
+            </div>
+            <button class="task-collapse" onclick="toggleTaskPanel()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
           </div>
-        </div>
-        <div class="form-row">
-          <label class="form-label">Auto-Connect New Integrations</label>
-          <div style="display:flex;gap:8px">
-            <button class="int-action-btn connected-btn" style="flex:1" onclick="setAutoConnect(this,true)">Yes</button>
-            <button class="int-action-btn" style="flex:1" onclick="setAutoConnect(this,false)">No</button>
+          <div class="task-steps" id="task-steps">
+            <!-- Filled dynamically -->
+          </div>
+          <div class="task-ai-badge" id="task-ai-badge">
+            <!-- Shows which AI is currently working -->
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ════════════════════════════════════════════ -->
-  <!-- MCP Setup Modal                              -->
-  <!-- ════════════════════════════════════════════ -->
+      <!-- Chat input -->
+      <div class="chat-input-area">
+        <div class="chat-input-wrap">
+          <textarea class="chat-input" id="chat-input" placeholder="Describe what you want to build..." rows="1" onkeydown="handleChatKey(event)" oninput="autoGrow(this)"></textarea>
+          <div class="chat-input-actions">
+            <button class="attach-btn" title="Attach files">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            </button>
+            <button class="send-btn" id="send-btn" onclick="sendChat()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="input-hint">Coco routes your request to the best AI for each task automatically</p>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── -->
+    <!-- PAGE: AI Hub             -->
+    <!-- ──────────────────────── -->
+    <section class="page" id="page-ai-hub">
+      <div class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="topbar-title">AI Hub</h1>
+        <p class="topbar-subtitle">The best AI for every task, all in one place</p>
+      </div>
+
+      <div class="page-scroll">
+        <!-- AI models currently enabled -->
+        <div class="section">
+          <h2 class="section-title">Active AIs</h2>
+          <p class="section-desc">These AIs are ready to use. Claude automatically picks the right one for each task.</p>
+          <div class="ai-grid" id="active-ais">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Code &amp; Development</h2>
+          <div class="ai-grid" id="ai-code">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Images &amp; Design</h2>
+          <div class="ai-grid" id="ai-images">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Audio &amp; Voice</h2>
+          <div class="ai-grid" id="ai-audio">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Video</h2>
+          <div class="ai-grid" id="ai-video">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Research &amp; Knowledge</h2>
+          <div class="ai-grid" id="ai-research">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Writing &amp; Content</h2>
+          <div class="ai-grid" id="ai-writing">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── -->
+    <!-- PAGE: Superpowers        -->
+    <!-- ──────────────────────── -->
+    <section class="page" id="page-superpowers">
+      <div class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="topbar-title">Superpowers</h1>
+        <p class="topbar-subtitle">Add new abilities with one click</p>
+      </div>
+
+      <div class="page-scroll">
+        <div class="search-bar">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2"/></svg>
+          <input class="search-input" type="text" placeholder="Search superpowers..." oninput="filterSuperpowers(this.value)" />
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-desc">Abilities Claude can use during conversations. Toggle them on or off.</p>
+          <div class="powers-grid" id="skills-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- Connectors (MCP in plain language) -->
+        <div class="section">
+          <h2 class="section-title">Connectors</h2>
+          <p class="section-desc">Let Claude read and write to your apps and services. Click to connect.</p>
+          <div class="powers-grid" id="connectors-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── -->
+    <!-- PAGE: Automations        -->
+    <!-- ──────────────────────── -->
+    <section class="page" id="page-automations">
+      <div class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="topbar-title">Automations</h1>
+        <p class="topbar-subtitle">Set up rules that run automatically</p>
+      </div>
+
+      <div class="page-scroll">
+        <!-- Existing automations -->
+        <div class="section">
+          <h2 class="section-title">My Automations</h2>
+          <div class="automations-list" id="automations-list">
+            <div class="empty-state">
+              <span class="empty-icon">&#9889;</span>
+              <p class="empty-text">No automations yet</p>
+              <p class="empty-sub">Create your first automation below</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Builder -->
+        <div class="section">
+          <h2 class="section-title">Create Automation</h2>
+          <p class="section-desc">When something happens, Claude does something for you automatically.</p>
+
+          <div class="auto-builder">
+            <div class="auto-row">
+              <span class="auto-label">When</span>
+              <select class="auto-select" id="auto-trigger">
+                <option value="">Choose a trigger...</option>
+                <option value="file-change">A file changes</option>
+                <option value="git-push">Code is pushed</option>
+                <option value="git-pr">A pull request is opened</option>
+                <option value="error">An error is detected</option>
+                <option value="schedule">On a schedule</option>
+                <option value="new-issue">A new issue is created</option>
+                <option value="deploy">A deploy finishes</option>
+                <option value="message">I send a message in Slack</option>
+              </select>
+            </div>
+            <div class="auto-arrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            </div>
+            <div class="auto-row">
+              <span class="auto-label">Then</span>
+              <select class="auto-select" id="auto-action">
+                <option value="">Choose an action...</option>
+                <option value="run-tests">Run tests</option>
+                <option value="fix-errors">Fix errors automatically</option>
+                <option value="review-code">Review the code</option>
+                <option value="send-summary">Send a summary</option>
+                <option value="deploy">Deploy to production</option>
+                <option value="create-pr">Create a pull request</option>
+                <option value="notify">Send me a notification</option>
+                <option value="generate-docs">Generate documentation</option>
+                <option value="optimize">Optimize performance</option>
+              </select>
+            </div>
+            <div class="auto-row" id="auto-detail-row" style="display:none">
+              <span class="auto-label">Details</span>
+              <input class="auto-input" id="auto-detail" type="text" placeholder="Additional details..." />
+            </div>
+            <div class="auto-actions">
+              <button class="btn-primary" onclick="createAutomation()">Create Automation</button>
+            </div>
+          </div>
+
+          <!-- Templates -->
+          <h3 class="subsection-title">Templates</h3>
+          <p class="section-desc">Popular automations you can enable instantly</p>
+          <div class="templates-grid">
+            <button class="template-card" onclick="useTemplate('auto-test')">
+              <span class="template-icon">&#128300;</span>
+              <span class="template-name">Auto-Test</span>
+              <span class="template-desc">Run tests every time a file changes</span>
+            </button>
+            <button class="template-card" onclick="useTemplate('auto-fix')">
+              <span class="template-icon">&#128295;</span>
+              <span class="template-name">Auto-Fix</span>
+              <span class="template-desc">Automatically fix lint errors on save</span>
+            </button>
+            <button class="template-card" onclick="useTemplate('pr-review')">
+              <span class="template-icon">&#128269;</span>
+              <span class="template-name">PR Review</span>
+              <span class="template-desc">Review every pull request automatically</span>
+            </button>
+            <button class="template-card" onclick="useTemplate('daily-summary')">
+              <span class="template-icon">&#128232;</span>
+              <span class="template-name">Daily Summary</span>
+              <span class="template-desc">Get a daily recap of project activity</span>
+            </button>
+            <button class="template-card" onclick="useTemplate('error-alert')">
+              <span class="template-icon">&#128680;</span>
+              <span class="template-name">Error Alert</span>
+              <span class="template-desc">Get notified instantly when errors occur</span>
+            </button>
+            <button class="template-card" onclick="useTemplate('auto-docs')">
+              <span class="template-icon">&#128196;</span>
+              <span class="template-name">Auto-Docs</span>
+              <span class="template-desc">Keep documentation updated with code changes</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── -->
+    <!-- PAGE: My Agents          -->
+    <!-- ──────────────────────── -->
+    <section class="page" id="page-agents">
+      <div class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="topbar-title">My Agents</h1>
+        <p class="topbar-subtitle">Create and manage your AI agents</p>
+      </div>
+
+      <div class="page-scroll">
+        <!-- Coco — the default agent -->
+        <div class="section">
+          <h2 class="section-title">Active Agents</h2>
+          <div class="agent-list" id="agent-list">
+            <div class="agent-card featured">
+              <div class="agent-avatar coco-avatar">C</div>
+              <div class="agent-info">
+                <span class="agent-name">Coco</span>
+                <span class="agent-role">Your personal AI assistant</span>
+                <span class="agent-desc">General-purpose agent that routes tasks to the best AI automatically. Handles code, images, research, and more.</span>
+              </div>
+              <div class="agent-stats">
+                <div class="agent-stat"><span class="stat-num" id="coco-ai-count">3</span><span class="stat-label">AIs connected</span></div>
+                <div class="agent-stat"><span class="stat-num" id="coco-skill-count">4</span><span class="stat-label">Skills enabled</span></div>
+              </div>
+              <span class="agent-badge default-badge">Default</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Create Agent -->
+        <div class="section">
+          <h2 class="section-title">Create a New Agent</h2>
+          <p class="section-desc">Build a specialized agent for a specific job. Pick which AIs it uses, what it can access, and what personality it has.</p>
+
+          <div class="agent-builder" id="agent-builder">
+            <!-- Step 1: Identity -->
+            <div class="builder-step active" id="ab-step-1">
+              <h3 class="builder-step-title">Identity</h3>
+              <div class="builder-form">
+                <div class="form-row">
+                  <label class="form-label">Agent Name</label>
+                  <input class="form-input" id="agent-name" type="text" placeholder="e.g. DesignBot, CodeReviewer, ContentWriter" />
+                </div>
+                <div class="form-row">
+                  <label class="form-label">What does this agent do?</label>
+                  <textarea class="form-input form-textarea" id="agent-purpose" placeholder="Describe what this agent specializes in..." rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                  <label class="form-label">Personality</label>
+                  <div class="personality-options">
+                    <button class="personality-btn selected" onclick="pickPersonality(this,'professional')">Professional</button>
+                    <button class="personality-btn" onclick="pickPersonality(this,'friendly')">Friendly</button>
+                    <button class="personality-btn" onclick="pickPersonality(this,'creative')">Creative</button>
+                    <button class="personality-btn" onclick="pickPersonality(this,'technical')">Technical</button>
+                    <button class="personality-btn" onclick="pickPersonality(this,'concise')">Concise</button>
+                  </div>
+                </div>
+              </div>
+              <div class="builder-actions">
+                <button class="btn-primary" onclick="advanceAgentBuilder(2)">Next: Choose AIs</button>
+              </div>
+            </div>
+
+            <!-- Step 2: AI selection -->
+            <div class="builder-step" id="ab-step-2">
+              <h3 class="builder-step-title">Which AIs should this agent use?</h3>
+              <p class="section-desc">Pick the AIs that make sense for this agent's job</p>
+              <div class="ai-picker" id="ai-picker">
+                <!-- Filled by JS -->
+              </div>
+              <div class="builder-actions">
+                <button class="btn-secondary" onclick="advanceAgentBuilder(1)">Back</button>
+                <button class="btn-primary" onclick="advanceAgentBuilder(3)">Next: Access &amp; Skills</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Connectors & Skills -->
+            <div class="builder-step" id="ab-step-3">
+              <h3 class="builder-step-title">What can this agent access?</h3>
+              <p class="section-desc">Choose which apps and skills this agent is allowed to use</p>
+              <div class="access-picker" id="access-picker">
+                <!-- Filled by JS -->
+              </div>
+              <div class="builder-actions">
+                <button class="btn-secondary" onclick="advanceAgentBuilder(2)">Back</button>
+                <button class="btn-primary" onclick="createAgent()">Create Agent</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent Templates -->
+        <div class="section">
+          <h2 class="section-title">Agent Templates</h2>
+          <p class="section-desc">Start from a template and customize</p>
+          <div class="templates-grid">
+            <button class="template-card" onclick="useAgentTemplate('designer')">
+              <span class="template-icon">&#127912;</span>
+              <span class="template-name">Designer</span>
+              <span class="template-desc">Creates images, logos, and visual assets using Midjourney + Flux</span>
+            </button>
+            <button class="template-card" onclick="useAgentTemplate('coder')">
+              <span class="template-icon">&#128187;</span>
+              <span class="template-name">Full-Stack Dev</span>
+              <span class="template-desc">Builds complete web apps with Claude + deploys automatically</span>
+            </button>
+            <button class="template-card" onclick="useAgentTemplate('researcher')">
+              <span class="template-icon">&#128218;</span>
+              <span class="template-name">Researcher</span>
+              <span class="template-desc">Deep research with Perplexity + Claude analysis and reports</span>
+            </button>
+            <button class="template-card" onclick="useAgentTemplate('content')">
+              <span class="template-icon">&#128221;</span>
+              <span class="template-name">Content Creator</span>
+              <span class="template-desc">Blog posts, social media, videos, and marketing copy</span>
+            </button>
+            <button class="template-card" onclick="useAgentTemplate('data')">
+              <span class="template-icon">&#128202;</span>
+              <span class="template-name">Data Analyst</span>
+              <span class="template-desc">Analyzes data, creates charts, writes reports</span>
+            </button>
+            <button class="template-card" onclick="useAgentTemplate('devops')">
+              <span class="template-icon">&#9881;</span>
+              <span class="template-name">DevOps</span>
+              <span class="template-desc">Manages deployments, monitors errors, maintains infrastructure</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────── -->
+    <!-- PAGE: My Devices         -->
+    <!-- ──────────────────────── -->
+    <section class="page" id="page-devices">
+      <div class="topbar">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <h1 class="topbar-title">My Devices</h1>
+        <p class="topbar-subtitle">Your connected machines</p>
+      </div>
+
+      <div class="page-scroll">
+        <!-- Connected -->
+        <div class="section">
+          <h2 class="section-title">Connected</h2>
+          <div class="device-list" id="device-list">
+            <div class="device-row">
+              <span class="status-dot online"></span>
+              <div class="device-info">
+                <span class="device-row-name">Mac mini</span>
+                <span class="device-row-meta">macOS &middot; Apple M2 &middot; 192.168.1.42</span>
+              </div>
+              <span class="device-row-status connected">Connected</span>
+              <button class="device-row-btn" onclick="manageDevice('mac-mini')">Manage</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add new device -->
+        <div class="section">
+          <h2 class="section-title">Add a Device</h2>
+          <p class="section-desc">Connect a new computer so Claude can work on it for you</p>
+
+          <div class="add-device-grid">
+            <button class="add-device-card" onclick="startDeviceSetup('mac')">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="36" height="5" rx="2.5" stroke="currentColor" stroke-width="2"/><line x1="21" y1="19" x2="21" y2="24" stroke="currentColor" stroke-width="1.5"/><line x1="27" y1="19" x2="27" y2="24" stroke="currentColor" stroke-width="1.5"/><rect x="17" y="24" width="14" height="3" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+              <span>Mac</span>
+            </button>
+            <button class="add-device-card" onclick="startDeviceSetup('windows')">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M10 16L21 14.5V23.5H10V16Z" stroke="currentColor" stroke-width="2"/><path d="M23 14L38 12V23.5H23V14Z" stroke="currentColor" stroke-width="2"/><path d="M10 25.5H21V34.5L10 33V25.5Z" stroke="currentColor" stroke-width="2"/><path d="M23 25.5H38V37L23 35V25.5Z" stroke="currentColor" stroke-width="2"/></svg>
+              <span>Windows</span>
+            </button>
+            <button class="add-device-card" onclick="startDeviceSetup('linux')">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="12" y="8" width="24" height="32" rx="2" stroke="currentColor" stroke-width="2"/><line x1="16" y1="16" x2="32" y2="16" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="24" x2="32" y2="24" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="12" r="1.5" fill="#4ade80"/></svg>
+              <span>Linux</span>
+            </button>
+            <button class="add-device-card" onclick="startDeviceSetup('cloud')">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M14 32c-5 0-8-3.5-8-7.5s3-7 8-7c0-6 5-10 12-10s12 4 12 10c5 0 8 3.5 8 7.5S43 32 38 32z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+              <span>Cloud</span>
+            </button>
+          </div>
+
+          <!-- Setup wizard (appears when you click a device) -->
+          <div class="device-setup hidden" id="device-setup">
+            <div class="setup-header">
+              <h3 class="setup-title" id="setup-title">Set up your Mac</h3>
+              <button class="setup-close" onclick="closeDeviceSetup()">&times;</button>
+            </div>
+
+            <!-- Step 1: Download -->
+            <div class="setup-step active" id="ds-step-1">
+              <div class="setup-step-header">
+                <span class="setup-step-num">1</span>
+                <span class="setup-step-label">Download Claude Code on your device</span>
+              </div>
+              <p class="setup-info">Open this link on the device you want to connect, and click the download button. That's it.</p>
+              <button class="btn-primary btn-lg" onclick="advanceDeviceSetup(2)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:8px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download for Mac
+              </button>
+              <p class="setup-alt">Or share this link with your device: <span class="setup-link">claude.ai/download</span></p>
+            </div>
+
+            <!-- Step 2: Sign in -->
+            <div class="setup-step" id="ds-step-2">
+              <div class="setup-step-header">
+                <span class="setup-step-num">2</span>
+                <span class="setup-step-label">Sign in on your device</span>
+              </div>
+              <p class="setup-info">Open Claude Code on your device and sign in with your account. We'll detect it automatically.</p>
+              <div class="setup-waiting">
+                <div class="waiting-spinner"></div>
+                <span>Waiting for sign-in...</span>
+              </div>
+              <button class="btn-secondary" onclick="advanceDeviceSetup(3)">I've signed in</button>
+            </div>
+
+            <!-- Step 3: Done -->
+            <div class="setup-step" id="ds-step-3">
+              <div class="setup-step-header">
+                <span class="setup-step-num check">&#10003;</span>
+                <span class="setup-step-label">Connected!</span>
+              </div>
+              <p class="setup-info">Your device is connected and ready. Claude can now work on it remotely.</p>
+              <button class="btn-primary" onclick="closeDeviceSetup()">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ Modal ═══ -->
   <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
     <div class="modal" onclick="event.stopPropagation()">
       <div class="modal-header">
-        <h2 class="modal-title" id="modal-title">Connect Server</h2>
+        <h2 class="modal-title" id="modal-title">Connect</h2>
         <button class="modal-close" onclick="closeModal()">&times;</button>
       </div>
-      <div class="modal-body" id="modal-body">
-        <p>This will configure the MCP server connection in your Claude Code settings.</p>
-        <div class="code-block" id="modal-code">
-<button class="copy-btn" onclick="copyCode()">Copy</button>
-{
-  "mcpServers": {
-    "server-name": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-name"]
-    }
-  }
-}</div>
-        <p style="margin-top:16px;font-size:13px;color:#666">Claude Code will add this to your settings automatically. Just click Install below.</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-        <button class="btn-install" id="modal-install-btn" onclick="installIntegration()">One-Click Install</button>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer" id="modal-footer">
+        <button class="btn-ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn-primary" id="modal-action-btn" onclick="modalAction()">Connect</button>
       </div>
     </div>
   </div>
