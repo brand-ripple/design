@@ -34,7 +34,7 @@
     <!-- Page Header -->
     <div class="workflow-header">
       <h1 class="workflow-title">Create Ad Creative</h1>
-      <p class="workflow-subtitle">Design and launch your ad in five simple steps.</p>
+      <p class="workflow-subtitle">Get inspired, design, and launch in six steps.</p>
     </div>
 
     <!-- Step Progress Bar -->
@@ -45,21 +45,25 @@
       <div class="stepper-steps">
         <button class="stepper-step active" data-step="1">
           <span class="stepper-dot"></span>
-          <span class="stepper-label">Campaign</span>
+          <span class="stepper-label">Inspire</span>
         </button>
         <button class="stepper-step" data-step="2">
           <span class="stepper-dot"></span>
-          <span class="stepper-label">Format</span>
+          <span class="stepper-label">Campaign</span>
         </button>
         <button class="stepper-step" data-step="3">
           <span class="stepper-dot"></span>
-          <span class="stepper-label">Creative</span>
+          <span class="stepper-label">Format</span>
         </button>
         <button class="stepper-step" data-step="4">
           <span class="stepper-dot"></span>
-          <span class="stepper-label">Copy</span>
+          <span class="stepper-label">Creative</span>
         </button>
         <button class="stepper-step" data-step="5">
+          <span class="stepper-dot"></span>
+          <span class="stepper-label">Copy</span>
+        </button>
+        <button class="stepper-step" data-step="6">
           <span class="stepper-dot"></span>
           <span class="stepper-label">Review</span>
         </button>
@@ -69,8 +73,105 @@
     <!-- Step Panels -->
     <div class="steps-container">
 
-      <!-- Step 1: Campaign Setup -->
+      <!-- Step 1: Inspire -->
       <section class="step-panel active" data-panel="1">
+        <div class="panel-header">
+          <div class="panel-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 14 C36 14 26 24 26 38 C26 48 32 54 36 60 L36 68 L64 68 L64 60 C68 54 74 48 74 38 C74 24 64 14 50 14 Z" stroke="white" stroke-width="2" fill="none"/>
+              <line x1="40" y1="74" x2="60" y2="74" stroke="white" stroke-width="2"/>
+              <line x1="42" y1="80" x2="58" y2="80" stroke="white" stroke-width="2"/>
+              <line x1="46" y1="86" x2="54" y2="86" stroke="white" stroke-width="2"/>
+              <line x1="50" y1="38" x2="50" y2="50" stroke="#e05a2b" stroke-width="2.5"/>
+              <line x1="44" y1="44" x2="56" y2="44" stroke="#e05a2b" stroke-width="2.5"/>
+              <line x1="20" y1="38" x2="14" y2="38" stroke="#e05a2b" stroke-width="2"/>
+              <line x1="86" y1="38" x2="80" y2="38" stroke="#e05a2b" stroke-width="2"/>
+              <line x1="24" y1="22" x2="20" y2="18" stroke="#e05a2b" stroke-width="2"/>
+              <line x1="76" y1="22" x2="80" y2="18" stroke="#e05a2b" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="panel-title">Get Inspired</h2>
+            <p class="panel-desc">Browse top-performing ads or pull directly from public ad libraries.</p>
+          </div>
+        </div>
+
+        <!-- Ad Library Sources -->
+        <div class="library-bar">
+          <span class="library-bar-label">Browse in ad library</span>
+          <div class="library-links">
+            <a href="https://www.facebook.com/ads/library/" target="_blank" rel="noopener" class="library-link">
+              <span class="library-link-name">Meta Ad Library</span>
+              <span class="library-link-arrow">&#8599;</span>
+            </a>
+            <a href="https://library.tiktok.com/ads" target="_blank" rel="noopener" class="library-link">
+              <span class="library-link-name">TikTok Creative Center</span>
+              <span class="library-link-arrow">&#8599;</span>
+            </a>
+            <a href="https://adstransparency.google.com/" target="_blank" rel="noopener" class="library-link">
+              <span class="library-link-name">Google Ads Transparency</span>
+              <span class="library-link-arrow">&#8599;</span>
+            </a>
+            <a href="https://www.linkedin.com/ad-library/home" target="_blank" rel="noopener" class="library-link">
+              <span class="library-link-name">LinkedIn Ad Library</span>
+              <span class="library-link-arrow">&#8599;</span>
+            </a>
+            <a href="https://transparency.x.com/en" target="_blank" rel="noopener" class="library-link">
+              <span class="library-link-name">X Transparency</span>
+              <span class="library-link-arrow">&#8599;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="inspire-filters">
+          <div class="filter-group">
+            <label class="form-label">Platform</label>
+            <div class="chip-row">
+              <button class="chip active" data-filter="platform" data-value="all">All</button>
+              <button class="chip" data-filter="platform" data-value="meta">Meta</button>
+              <button class="chip" data-filter="platform" data-value="tiktok">TikTok</button>
+              <button class="chip" data-filter="platform" data-value="google">Google</button>
+              <button class="chip" data-filter="platform" data-value="linkedin">LinkedIn</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="form-label">Industry</label>
+            <div class="chip-row">
+              <button class="chip active" data-filter="industry" data-value="all">All</button>
+              <button class="chip" data-filter="industry" data-value="fintech">Fintech</button>
+              <button class="chip" data-filter="industry" data-value="saas">SaaS</button>
+              <button class="chip" data-filter="industry" data-value="ecommerce">E-commerce</button>
+              <button class="chip" data-filter="industry" data-value="fitness">Fitness</button>
+            </div>
+          </div>
+          <div class="filter-group full-width">
+            <label class="form-label" for="inspireSearch">Search</label>
+            <input type="text" id="inspireSearch" class="form-input" placeholder="Search by brand, keyword, or concept..." />
+          </div>
+        </div>
+
+        <!-- Inspiration Gallery -->
+        <div class="inspire-gallery" id="inspireGallery"></div>
+
+        <!-- Selected inspiration banner -->
+        <div class="selected-banner" id="selectedBanner" hidden>
+          <div class="selected-banner-icon">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="#e05a2b" stroke-width="2"/>
+              <polyline points="5,10 9,14 15,7" stroke="#e05a2b" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="selected-banner-body">
+            <span class="selected-banner-title">Template selected: <strong id="selectedTitle"></strong></span>
+            <span class="selected-banner-sub">We'll pre-fill your format, copy, and layout on the next steps. You can edit anything.</span>
+          </div>
+          <button class="selected-banner-clear" id="selectedClear">Clear</button>
+        </div>
+      </section>
+
+      <!-- Step 2: Campaign Setup -->
+      <section class="step-panel" data-panel="2">
         <div class="panel-header">
           <div class="panel-icon">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,8 +244,8 @@
         </div>
       </section>
 
-      <!-- Step 2: Ad Format -->
-      <section class="step-panel" data-panel="2">
+      <!-- Step 3: Ad Format -->
+      <section class="step-panel" data-panel="3">
         <div class="panel-header">
           <div class="panel-icon">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -263,8 +364,8 @@
         </div>
       </section>
 
-      <!-- Step 3: Creative Design -->
-      <section class="step-panel" data-panel="3">
+      <!-- Step 4: Creative Design -->
+      <section class="step-panel" data-panel="4">
         <div class="panel-header">
           <div class="panel-icon">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -330,8 +431,8 @@
         </div>
       </section>
 
-      <!-- Step 4: Copy & Text -->
-      <section class="step-panel" data-panel="4">
+      <!-- Step 5: Copy & Text -->
+      <section class="step-panel" data-panel="5">
         <div class="panel-header">
           <div class="panel-icon">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -388,8 +489,8 @@
         </div>
       </section>
 
-      <!-- Step 5: Review & Launch -->
-      <section class="step-panel" data-panel="5">
+      <!-- Step 6: Review & Launch -->
+      <section class="step-panel" data-panel="6">
         <div class="panel-header">
           <div class="panel-icon">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -407,6 +508,11 @@
           </div>
         </div>
         <div class="review-grid">
+          <div class="review-card">
+            <h3 class="review-card-title">Inspiration</h3>
+            <div class="review-row"><span class="review-label">Template</span><span class="review-value" id="revTemplate">None</span></div>
+            <div class="review-row"><span class="review-label">Source</span><span class="review-value" id="revSource">--</span></div>
+          </div>
           <div class="review-card">
             <h3 class="review-card-title">Campaign</h3>
             <div class="review-row"><span class="review-label">Name</span><span class="review-value" id="revName">--</span></div>
@@ -439,7 +545,7 @@
         &larr; Back
       </button>
       <div class="step-indicator">
-        <span id="currentStep">1</span> / 5
+        <span id="currentStep">1</span> / 6
       </div>
       <button class="wf-btn wf-btn-primary" id="btnNext">
         Next &rarr;
