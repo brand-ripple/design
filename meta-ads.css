@@ -160,7 +160,9 @@ body {
   z-index: 0;
 }
 
-/* Car photo — warm sunset highway mood */
+/* Car photo — warm sunset highway mood.
+   Positioning is handled by the host (.photo-layer or .land-right); we only
+   paint the background here so the same class works in both contexts. */
 .photo-car {
   background:
     /* sun flare */
@@ -169,7 +171,6 @@ body {
     linear-gradient(180deg, transparent 68%, rgba(20,18,34,0.85) 100%),
     /* sky-to-road gradient */
     linear-gradient(180deg, #2b2a52 0%, #4a3f6e 28%, #a9694a 60%, #d9854a 78%, #2a2236 100%);
-  position: absolute; inset: 0;
 }
 .photo-car::before {
   /* distant mountains silhouette */
@@ -202,12 +203,11 @@ body {
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));
 }
 
-/* Business photo — warm daytime office / handshake vibe */
+/* Business photo — warm daytime office / handshake vibe. */
 .photo-biz {
   background:
     radial-gradient(circle at 82% 22%, rgba(255,230,180,0.45) 0%, rgba(255,200,150,0) 38%),
     linear-gradient(135deg, #3b4a3a 0%, #6f8c62 32%, #c6b89a 62%, #ece2cf 100%);
-  position: absolute; inset: 0;
 }
 .photo-biz::before {
   /* window panes / soft light stripes */
@@ -258,7 +258,10 @@ body {
 }
 
 /* ─── Ad content layout ─── */
-.ad > * { position: relative; z-index: 2; }
+/* Put content layers above .photo-layer (z:0) and .tint-layer (z:1).
+   DO NOT touch `position` here — the absolute positioning set on each
+   content element below must win. */
+.ad > *:not(.photo-layer):not(.tint-layer) { z-index: 2; }
 
 .ad-logo {
   display: inline-flex;
