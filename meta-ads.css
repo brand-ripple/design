@@ -1,0 +1,512 @@
+/* ═══════════════════════════════════════════════════
+   My Peace of Mind — Meta Ad Creatives
+   Brand colors
+   --ink       #1d1d3a   deep navy/purple (logo face, dark text)
+   --green     #5d8e3d   primary CTA green
+   --green-dk  #4e7834   hover / shadow
+   --leaf      #8fc468   light tree foliage (on dark)
+   --lavender  #f1eef9   page/section background
+   --cloud     #ffffff
+   ═══════════════════════════════════════════════════ */
+
+* , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:      #1d1d3a;
+  --ink-2:    #2a2a4e;
+  --green:    #5d8e3d;
+  --green-dk: #4e7834;
+  --leaf:     #8fc468;
+  --lavender: #f1eef9;
+  --lavender-2:#e6e1f3;
+  --muted:    #6b6b7d;
+  --cloud:    #ffffff;
+}
+
+html, body { min-height: 100%; }
+
+body {
+  background: var(--lavender);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 48px 32px 80px;
+}
+
+/* ─── Page header / brand row ─── */
+.page-header {
+  max-width: 1280px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.brand-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.brand-mark { width: 52px; height: 52px; }
+
+.brand-word {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.05;
+  color: var(--ink);
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+
+.page-header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.page-header .subtitle {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ─── Section ─── */
+.ad-section {
+  max-width: 1280px;
+  margin: 0 auto 64px;
+}
+
+.section-head {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.section-head h2 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* ─── Grid of ad previews ─── */
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  align-items: start;
+}
+
+/* A single ad preview column (caption + framed ad) */
+.ad-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ad-wrap-wide { grid-column: span 2; }
+
+@media (max-width: 900px) {
+  .ad-wrap-wide { grid-column: span 1; }
+}
+
+.ad-wrap figcaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ad-wrap .fmt   { color: var(--ink); }
+.ad-wrap .dims  { color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+
+/* ─── Ad frame (generic) ─── */
+.ad {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px -12px rgba(29,29,58,0.30),
+              0 2px 4px rgba(29,29,58,0.08);
+  color: var(--cloud);
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.ad-square    { aspect-ratio: 1 / 1; }
+.ad-story     { aspect-ratio: 9 / 16; }
+.ad-landscape { aspect-ratio: 1200 / 628; }
+
+/* ─── Photo layers (CSS-painted lifestyle imagery) ─── */
+.photo-layer {
+  position: absolute; inset: 0;
+  z-index: 0;
+}
+
+/* Car photo — warm sunset highway mood */
+.photo-car {
+  background:
+    /* sun flare */
+    radial-gradient(circle at 78% 38%, rgba(255,200,120,0.55) 0%, rgba(255,160,80,0) 32%),
+    /* road */
+    linear-gradient(180deg, transparent 68%, rgba(20,18,34,0.85) 100%),
+    /* sky-to-road gradient */
+    linear-gradient(180deg, #2b2a52 0%, #4a3f6e 28%, #a9694a 60%, #d9854a 78%, #2a2236 100%);
+  position: absolute; inset: 0;
+}
+.photo-car::before {
+  /* distant mountains silhouette */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 32%;
+  height: 22%;
+  background:
+    linear-gradient(180deg, rgba(40,30,56,0.85), rgba(40,30,56,1));
+  clip-path: polygon(
+    0% 100%, 0% 55%, 8% 48%, 14% 58%, 22% 40%, 30% 50%,
+    38% 28%, 46% 44%, 55% 32%, 64% 48%, 72% 38%, 82% 52%,
+    90% 42%, 100% 54%, 100% 100%
+  );
+}
+.photo-car::after {
+  /* stylised car silhouette */
+  content: "";
+  position: absolute;
+  left: 8%; right: 8%; bottom: 10%;
+  height: 26%;
+  background:
+    radial-gradient(ellipse at 22% 90%, rgba(255,220,160,0.75) 0%, transparent 18%),
+    radial-gradient(ellipse at 78% 90%, rgba(255,220,160,0.75) 0%, transparent 18%),
+    linear-gradient(180deg, #0f0e1e 0%, #090814 100%);
+  clip-path: polygon(
+    0% 82%, 4% 60%, 12% 46%, 22% 34%, 36% 22%, 52% 18%,
+    66% 22%, 78% 30%, 88% 44%, 96% 58%, 100% 72%, 100% 100%, 0% 100%
+  );
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));
+}
+
+/* Business photo — warm daytime office / handshake vibe */
+.photo-biz {
+  background:
+    radial-gradient(circle at 82% 22%, rgba(255,230,180,0.45) 0%, rgba(255,200,150,0) 38%),
+    linear-gradient(135deg, #3b4a3a 0%, #6f8c62 32%, #c6b89a 62%, #ece2cf 100%);
+  position: absolute; inset: 0;
+}
+.photo-biz::before {
+  /* window panes / soft light stripes */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,0.00) 0 18%,
+      rgba(255,255,255,0.08) 18% 22%,
+      rgba(255,255,255,0.00) 22% 40%),
+    linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(29,29,58,0.40) 100%);
+  mix-blend-mode: screen;
+}
+.photo-biz::after {
+  /* silhouetted figures + desk */
+  content: "";
+  position: absolute;
+  left: 6%; right: 6%; bottom: 8%;
+  height: 42%;
+  background:
+    /* two head silhouettes */
+    radial-gradient(circle at 28% 28%, #1e1d2e 0 6.5%, transparent 7%),
+    radial-gradient(circle at 68% 22%, #1e1d2e 0 7.5%, transparent 8%),
+    linear-gradient(180deg, rgba(20,18,34,0) 0%, rgba(20,18,34,0.20) 40%, rgba(20,18,34,0.80) 100%);
+  clip-path: polygon(
+    0% 100%, 0% 55%,
+    12% 48%, 20% 36%, 30% 30%, 42% 34%, 50% 42%,
+    58% 34%, 70% 28%, 82% 34%, 92% 44%, 100% 52%,
+    100% 100%
+  );
+}
+
+/* ─── Tint / overlay layers ─── */
+.tint-layer { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+
+.tint-dark {
+  background: linear-gradient(180deg, rgba(29,29,58,0.55) 0%, rgba(29,29,58,0.30) 45%, rgba(29,29,58,0.82) 100%);
+}
+.tint-biz {
+  background: linear-gradient(180deg, rgba(29,29,58,0.45) 0%, rgba(29,29,58,0.18) 40%, rgba(29,29,58,0.85) 100%);
+}
+.tint-gradient-up {
+  background: linear-gradient(180deg, rgba(29,29,58,0.55) 0%, rgba(29,29,58,0.10) 30%, rgba(29,29,58,0.30) 55%, rgba(29,29,58,0.95) 100%);
+}
+.tint-gradient-up-biz {
+  background: linear-gradient(180deg, rgba(29,29,58,0.45) 0%, rgba(29,29,58,0.05) 30%, rgba(29,29,58,0.35) 58%, rgba(29,29,58,0.95) 100%);
+}
+
+/* ─── Ad content layout ─── */
+.ad > * { position: relative; z-index: 2; }
+
+.ad-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  z-index: 3;
+}
+
+.logo-mini { width: 34px; height: 34px; flex-shrink: 0; }
+
+.logo-wordmark {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.005em;
+}
+.logo-wordmark-light { color: var(--cloud); }
+.logo-wordmark-dark  { color: var(--ink); }
+
+/* ─── Square ad body ─── */
+.ad-body {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 14%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 2;
+}
+
+.ad-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--leaf);
+  text-transform: uppercase;
+}
+.eyebrow-light { color: var(--leaf); }
+.eyebrow-dark  { color: var(--green); }
+
+.ad-title {
+  font-size: clamp(22px, 3.2vw, 38px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--cloud);
+}
+.ad-title em {
+  font-style: normal;
+  color: var(--leaf);
+}
+.title-dark { color: var(--ink); }
+.title-dark em { color: var(--green); }
+
+.ad-sub {
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-weight: 500;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.85);
+  max-width: 30ch;
+}
+.sub-dark { color: var(--muted); }
+
+/* ─── CTA button ─── */
+.ad-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  padding: 12px 22px;
+  background: var(--green);
+  color: var(--cloud);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  box-shadow: 0 6px 18px -6px rgba(93,142,61,0.8);
+  transition: background .2s, transform .15s;
+}
+.ad-cta:hover { background: var(--green-dk); transform: translateY(-1px); }
+.ad-cta-full  { align-self: stretch; padding: 16px 22px; letter-spacing: 0.18em; }
+
+/* ─── Square footer strip ─── */
+.ad-foot {
+  position: absolute;
+  left: 6%; right: 6%;
+  bottom: 5%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.75);
+  z-index: 2;
+}
+.ad-foot .dot {
+  width: 3px; height: 3px; border-radius: 50%; background: var(--leaf);
+}
+
+/* ═══════════════ Story layout ═══════════════ */
+.ad-story .story-logo {
+  top: 5%;
+  left: 6%;
+}
+
+.story-headline {
+  position: absolute;
+  top: 18%;
+  left: 6%;
+  right: 6%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 2;
+}
+
+.story-title {
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 0.98;
+}
+
+.story-panel {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 6%;
+  padding: 22px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+}
+
+.story-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stat { display: flex; flex-direction: column; gap: 2px; text-align: center; flex: 1; }
+.stat-num {
+  font-size: clamp(22px, 2.8vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--cloud);
+}
+.stat-num small { font-size: 0.5em; margin-left: 2px; color: var(--leaf); font-weight: 700; }
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+}
+.stat-div {
+  width: 1px; height: 28px;
+  background: rgba(255,255,255,0.22);
+}
+
+.story-copy {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.90);
+}
+
+.biz-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bullet {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cloud);
+}
+.bullet-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--leaf);
+  flex-shrink: 0;
+}
+
+/* ═══════════════ Landscape layout ═══════════════ */
+.ad-landscape {
+  display: flex;
+  background: var(--cloud);
+}
+.land-left {
+  flex: 1 1 55%;
+  padding: 6% 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: center;
+  background: var(--lavender);
+  position: relative;
+}
+.land-left-alt { background: #ecf3e4; }
+
+.land-left .ad-logo {
+  position: static;
+  margin-bottom: 6px;
+}
+
+.land-right {
+  flex: 1 1 45%;
+  position: relative;
+  min-height: 100%;
+}
+
+/* Slight decorative shape separator */
+.land-left::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  right: -1px;
+  width: 40px;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 1;
+}
+
+/* ─── Page footer ─── */
+.page-footer {
+  max-width: 1280px;
+  margin: 40px auto 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  body { padding: 32px 16px 60px; }
+  .page-header h1 { font-size: 30px; }
+  .section-head h2 { font-size: 24px; }
+  .ad-grid { grid-template-columns: 1fr; }
+}
